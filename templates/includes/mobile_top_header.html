@@ -1,23 +1,21 @@
 {% load static %}
 
-<div id="topnav" class="row bg-white d-block d-lg-none">
-    <div class="col-12 my-auto py-1 py-lg-0 text-center img-div">
+<div class="row bg-white d-block d-lg-none w-100 no-gutters">
+    <div class="col-12 py-1 py-lg-0 text-center img-div">
         <a href="{% url 'home' %}" class="nav-link main-logo-link">
           <img src="{% static 'media/two_dragons_white_loggo.png' %}" alt="dragons nest gaming logo link to homepage">
         </a>
     </div>
 </div>
-<div  id="mobile-navbar" class="row d-lg-none bg-orange">
+<div id="mobile-navbar" class="row d-lg-none w-100">
     <div class="col-2">
-        <nav class="navbar navbar-expand-lg navbar-light w-100">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </nav>
+        <button class="navbar-toggler m-3" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
     </div>
     <div class="col-6">
         <form action="GET" action="">
-            <div class="input-group">
+            <div class="input-group m-3">
                 <input type="text" class="form-control border border-black rounded-0" name="q" placeholder="What are you seeking?">
                 <div class="input-group-append">
                     <button class="form-control btn btn-orange border border-black rounded-0" type="submit">
@@ -33,7 +31,7 @@
         <li class="list-inline-item dropdown">
             <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="text-center">
-                    <div><i class="fas fa-user fa-lg"></i></div>
+                    <div><i class="fas fa-hat-wizard fa-lg"></i></div>
                     <p class="my-0">My Account</p>
                 </div>
             </a>
@@ -54,7 +52,7 @@
         <li class="list-inline-item">
             <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none float-right" href="">
                 <div class="text-center">
-                    <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                    <div><i class="fas fa-cart-shopping fa-lg"></i></div>
                     <p class="my-0">
                         {% if grand_total %}
                             ${{ grand_total|floatformat:2 }}

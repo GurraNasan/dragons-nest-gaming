@@ -41,12 +41,8 @@
               <img src="{% static 'media/two_dragons_white_loggo.png' %}" alt="dragons nest gaming logo link to homepage">
             </a>
         </div>
-        <div class="col-12 col-lg-6 my-auto py-1 py-lg-0">
-          <nav class="navbar navbar-expand-lg navbar-light w-100">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          </nav>
+        <div class="col-12 col-lg-6 d-block my-auto py-1 py-lg-0">
+
         </div>
         <div class="col-12 col-lg-3 my-auto py-1 py-lg-0">
           <ul class="list-inline list-unstyled text-center text-lg-right my-0">
@@ -99,8 +95,12 @@
           </form>
         </div>
       </div>
-      {% include 'includes/mobile_top_header.html' %}
-      {% include 'includes/main_nav.html' %}
+      <div class="row bg-orange">
+        <nav class="navbar navbar-expand-lg navbar-light w-100 p-sm-0">
+          {% include 'includes/mobile_top_header.html' %}  
+          {% include 'includes/main_nav.html' %}  
+        </nav> 
+      </div>
     </header>
 
     {% if messages %}
