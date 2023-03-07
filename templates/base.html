@@ -53,7 +53,7 @@
                   <p class="my-0">My Account</p>
                 </div>
               </a>
-              <div class="dropdown-menu border-0" aria-labelledby="user-option">
+              <div class="dropdown-menu border-1" aria-labelledby="user-option">
                 {% if request.user.is_authenticated %}
                   {% if request.user.is_superuser %}
                     <a href="" class="dropdown-item">Product Managment</a>
@@ -82,7 +82,7 @@
             </li>
           </ul>
           <form action="GET" action="">
-            <div class="input-group w-100">
+            <div class="input-group w-100 shadow">
               <input type="text" class="form-control border border-black rounded-0" name="q" placeholder="What are you seeking?">
               <div class="input-group-append">
                 <button class="form-control btn btn-orange border border-black rounded-0" type="submit">
