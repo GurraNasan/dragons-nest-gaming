@@ -5,14 +5,13 @@ html {
 body {
     background: url('/media/magic_home_background2.jpg') no-repeat center center fixed;
     background-size: cover;
-    height: calc(100vh - 164px);
     color: #000;
     font-family: 'K2D', sans-serif;
     font-size: large;
 }
 
 .header-container {
-    padding-bottom: 45px;
+    padding-bottom: 300px;
 }
 
 .card-img-top {
@@ -104,9 +103,5 @@ body {
         right: 0;
         left: 0;
         z-index: 1030;
-    }
-
-    .header-container {
-        padding-top: 164px;
     }
 }
