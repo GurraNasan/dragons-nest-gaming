@@ -1,6 +1,30 @@
 from django.contrib import admin
 from .models import Product, Category, SubCategory
 
-admin.site.register(Product)
-admin.site.register(Category)
+
+class ProductAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+        'category',
+        'price',
+        'rating',
+        'available',
+        'in_stock',
+        'image',
+    )
+
+    ordering = ['name',]
+    search_fields = ['name', 'Category', 'price']
+
+
+class CategoryAdmin(admin.ModelAdmin):
+
+    list_display = (
+        'friendly_name',
+        'name',
+    )
+
+
+admin.site.register(Product, ProductAdmin)
+admin.site.register(Category, CategoryAdmin)
 admin.site.register(SubCategory)
