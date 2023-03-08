@@ -31,31 +31,31 @@
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="product-details-container">
                     <p><h2>{{ product.name }}</h2></p>
-                    <p class="lead text-left font-weight-bold">Price: ${{ product.price }}</p>
+                    <p class="lead text-left font-weight-bold mb-1">Price: ${{ product.price }}</p>
                     {% if product.in_stock %}
                         {% if product.available >= 5 %}
                             <p class="small">
                                 Stock: {{ product.available }}
                             </p>
                         {% else %}
-                            <p class="small">
-                                <bold class="text-red">HURRY!</bold> We only got: {{ product.available }} left
+                            <p class="small mb-1">
+                                <bold class="text-danger">HURRY!</bold> We only got: {{ product.available }} left
                             </p>
                         {% endif %}
                     {% else %}
-                        <p class="small text-red">
+                        <p class="small text-danger">
                             <i class="fa-solid fa-circle-xmark"></i>
                             Sorry, We are sold out
                         </p>
                     {% endif %}
 
                     {% if product.rating %}
-                        <small class="text-muted mb-3"><i class="fas fa-star mr-1"></i>{{ product.rating }}</small>
+                        <small class="text-muted mb-3"><i class="fa-solid fa-star mb-2"></i>{{ product.rating }}</small>
                     {% else %}
-                        <small class="text-muted mb-3">No rating</small>
+                        <small class="text-muted mb-3"><i class="fa-solid fa-star mb-2"></i> No rating</small>
                     {% endif %}
                     <div class="border-black">
-                        <div class="text-center text-black bg-orange">
+                        <div class="text-center text-black bg-orange ">
                             Product info
                         </div>
                         <div>

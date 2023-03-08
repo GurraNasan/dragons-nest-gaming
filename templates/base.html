@@ -81,18 +81,18 @@
               </a>
             </li>
           </ul>
-          <form action="GET" action="">
-            <div class="input-group w-100 shadow">
-              <input type="text" class="form-control border border-black rounded-0" name="q" placeholder="What are you seeking?">
-              <div class="input-group-append">
-                <button class="form-control btn btn-orange border border-black rounded-0" type="submit">
-                  <span class="icon">
-                    <i class="fas fa-search"></i>
-                  </span>
-                </button>
-              </div>
+          <form method="GET" action="{% url 'products' %}">
+            <div class="input-group shadow w-100">
+                <input type="text" class="form-control border border-black rounded-0" name="q" placeholder="What are you seeking?">
+                <div class="input-group-append">
+                    <button class="form-control btn btn-orange border border-black rounded-0" type="submit">
+                    <span class="icon">
+                        <i class="fas fa-search"></i>
+                    </span>
+                    </button>
+                </div>
             </div>
-          </form>
+        </form>
         </div>
       </div>
       <div class="row bg-orange">
