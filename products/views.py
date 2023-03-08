@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Product
 
 
@@ -14,3 +14,16 @@ def products_list(request):
     }
 
     return render(request, 'products/products.html', context)
+
+
+def product_info(request, product_id):
+    """ 
+        A view for a singel product info
+    """
+    product = get_object_or_404(Product, pk=product_id)
+
+    context = {
+        'product': product,
+    }
+
+    return render(request, 'products/product_info.html', context)

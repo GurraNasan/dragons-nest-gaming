@@ -14,6 +14,10 @@ body {
     padding-bottom: 300px;
 }
 
+.push-down {
+    padding-top: 25%;
+}
+
 .card-img-top {
     width: 100%;
     height: 15vw;
@@ -34,11 +38,6 @@ body {
 }
 
 /* from boutiq ado */ 
-.shop-now-button {
-    background: #f29100;
-    color: #000;
-    min-width: 260px;
-}
 
 .overlay {
     height: 100%;
@@ -68,6 +67,10 @@ body {
     border: 1px solid black !important;
 }
 
+.border-orange {
+    border: 3px solid #f29100
+}
+
 .btn-orange {
     background: #f29100;
     color: #000;
@@ -82,6 +85,16 @@ body {
     height : 200px;
     max-height: 100%;
     max-width: 100%;
+}
+
+.start-shop-btn {
+    background: #000;
+    color: #f29100;
+    min-width: 260px;
+}
+
+.text-red {
+    color: red;
 }
 
 
