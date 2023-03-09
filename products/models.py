@@ -20,6 +20,7 @@ class Category(models.Model):
 class SubCategory(models.Model):
     """ Models for deals or new arrivals """
     name = models.CharField(max_length=200)
+    friendly_name = models.CharField(max_length=200, null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -32,21 +33,6 @@ class Product(models.Model):
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name='category1'
-    )
-    category2 = models.ForeignKey(
-        'Category',
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='category2'
-    )
-    category3 = models.ForeignKey(
-        'Category',
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='category3'
     )
     sub_category = models.ForeignKey(
         'SubCategory',

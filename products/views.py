@@ -11,20 +11,48 @@ def products_list(request):
     """
     products = Product.objects.all()
     query = None
+    sort = None
+    direction = None
 
     if request.GET:
+        """ Code for sorting """
+        if 'sort' in request.GET:
+            key = request.GET['sort']
+            sort = key
+            if key == 'name':
+                key == 'lower_name'
+                products = products.annotate(lower_name=Lower('name'))
+            if key == 'catergory':
+                key = 'category__name'
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    key = f'-{key}'
+            products = products.order_by(key)
+
+        """Code for filter out diffrent categories """
+        if 'category' in request.GET:
+            categories = request.GET['category'].split(',')
+            products = products.filter(category__name__in=categories)
+            categories = Category.objects.filter(name__in=categories)
+
+        """Code for searchbar function """
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
                 messages.error(request, "I think you forgot to write anything, TRY AGAIN!")
                 return redirect(reverse('products'))
 
-        queries = Q(name__icontains=query) | Q(description__icontains=query)
-        products = products.filter(queries)
+            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            products = products.filter(queries)
+
+    current_sorting = f'{sort}_{direction}'
 
     context = {
         'products': products,
         'search_term': query,
+        'current_sorting': current_sorting,
+        'current_categories': categories,
     }
 
     return render(request, 'products/products.html', context)

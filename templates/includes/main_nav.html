@@ -5,11 +5,11 @@
                 Card Games
             </a>
             <div class="dropdown-menu shadow">
-                <a href="" class="dropdown-item"></a>
-                <a href="" class="dropdown-item">Magic The Gathering</a>
-                <a href="" class="dropdown-item">Pokémon</a>
-                <a href="" class="dropdown-item">Other</a>
-                <a href="" class="dropdown-item">Accessories</a>
+                <a href="{% url 'products' %}?category=magic_the_gathering" class="dropdown-item">Magic The Gathering</a>
+                <a href="{% url 'products' %}?category=pokemon" class="dropdown-item">Pokémon</a>
+                <a href="{% url 'products' %}?category=others_card" class="dropdown-item">Other</a>
+                <a href="{% url 'products' %}?category=sleeves,dice,deckboxes_and_binders" class="dropdown-item">Accessories</a>
+                <a href="{% url 'products' %}?category=sleeves,dice,deckboxes_and_binders,magic_the_gathering,pokemon,other_card" class="dropdown-item">All Card Games Products</a>
             </div>
         </li>
 
@@ -18,11 +18,12 @@
                 Board Games
             </a>
             <div class="dropdown-menu shadow">
-                <a href="" class="dropdown-item">Family Games</a>
-                <a href="" class="dropdown-item">Party Games</a>
-                <a href="" class="dropdown-item">Kids Games</a>
-                <a href="" class="dropdown-item">Solo Mode Games</a>
-                <a href="" class="dropdown-item">Co-Op Games</a>
+                <a href="{% url 'products' %}?category=family_games" class="dropdown-item">Family Games</a>
+                <a href="{% url 'products' %}?category=party_games" class="dropdown-item">Party Games</a>
+                <a href="{% url 'products' %}?category=kids_games" class="dropdown-item">Kids Games</a>
+                <a href="{% url 'products' %}?category=solo_mode_games" class="dropdown-item">Solo Mode Games</a>
+                <a href="{% url 'products' %}?category=co-op_games" class="dropdown-item">Co-Op Games</a>
+                <a href="{% url 'products' %}?category=family_games,party_games,kids_games,solo_mode_games,co-op_games" class="dropdown-item">All Board Games</a>
             </div>
         </li>
 
@@ -31,9 +32,10 @@
                 Miniature Games
             </a>
             <div class="dropdown-menu shadow">
-                <a href="" class="dropdown-item">Warhammer 40K</a>
-                <a href="" class="dropdown-item">Warhammer Age Of Sigmar</a>
-                <a href="" class="dropdown-item">Accessories</a>
+                <a href="{% url 'products' %}?category=warhammer_40k" class="dropdown-item">Warhammer 40K</a>
+                <a href="{% url 'products' %}?category=warhammer_age_of_sigmar" class="dropdown-item">Warhammer Age Of Sigmar</a>
+                <a href="{% url 'products' %}?category=dice,paint:_and_brushes" class="dropdown-item">Accessories</a>
+                <a href="{% url 'products' %}?category=warhammer_40k, warhammer_age_of_sigmar,dice,paint:_and_brushes" class="dropdown-item">All Miniature Games</a>
             </div>
         </li>
 
@@ -42,8 +44,9 @@
                 Merchandise
             </a>
             <div class="dropdown-menu shadow">
-                <a href="" class="dropdown-item">Apparel</a>
-                <a href="" class="dropdown-item">Other</a>
+                <a href="{% url 'products' %}?category=apparel" class="dropdown-item">Apparel</a>
+                <a href="{% url 'products' %}?category=other_merch" class="dropdown-item">Other</a>
+                <a href="{% url 'products' %}?category=apparel,other_merch" class="dropdown-item">All Merchandise</a>
             </div>
         </li>
 
@@ -52,10 +55,11 @@
                  Game Accessories
             </a>
             <div class="dropdown-menu shadow">
-                <a href="" class="dropdown-item">Dice</a>
-                <a href="" class="dropdown-item">Paint and Brushes</a>
-                <a href="" class="dropdown-item">Sleeves</a>
-                <a href="" class="dropdown-item">Deckboxes and Binders</a>
+                <a href="{% url 'products' %}?category=dice" class="dropdown-item">Dice</a>
+                <a href="{% url 'products' %}?category=paint:_and_brushes" class="dropdown-item">Paint and Brushes</a>
+                <a href="{% url 'products' %}?category=sleeves" class="dropdown-item">Sleeves</a>
+                <a href="{% url 'products' %}?category=deckboxes_and_binders" class="dropdown-item">Deckboxes and Binders</a>
+                <a href="{% url 'products' %}?category=dice,paint:_and_brushes,sleeves,deckboxes_and_binders" class="dropdown-item">Game Accessories</a>
             </div>
         </li>
 
