@@ -15,24 +15,14 @@
     <div class="overlay"></div>
     <div class="container-fluid">
         <div class="row d-flex">
-            <div class="col-4 text-center">
-                <h2>Products</h2>
-            </div>   
-            <div class="col-4 text-center">
-                <h2>Products</h2>
-            </div>   
-            <div class="col-4 text-center">
-                <div class="sort-select-wrapper">
-                    <select id="sort-selector" class="custom-select custom-select-sm mt-sm-2 mt-lg-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
-                        <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by</option>
-                        <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>A-Z</option>
-                        <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Z-A</option>
-                        <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (high to low)</option>
-                        <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (low to high)</option>
-                        <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (high to low)</option>
-                        <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (low to high)</option>
-                    </select>
-                </div>
+            <div class="col text-center">
+                {% if current_categories %}
+                    {% for cat in current_categories %}
+                        <h2>{{ cat.friendly_name }}</h2>
+                    {% endfor %}
+                {% else %}
+                    <h2>Products</h2>
+                {% endif %}
             </div>
         </div>
         <div class="row">
@@ -41,7 +31,29 @@
     </div>
     <div class="row">
         <div class="product-container col-10 offset-1">
-            <div class="row"></div>
+            <div class="row">
+                <div class="col-12 col-md-6 d-flex justify-content-start">
+                    <div class="sort-select-wrapper">
+                        <select id="sort-selector" class="custom-select custom-select-sm mt-sm-2 mt-lg-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by</option>
+                            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>A-Z</option>
+                            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Z-A</option>
+                            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (high to low)</option>
+                            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (low to high)</option>
+                            <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (high to low)</option>
+                            <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (low to high)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 d-flex justify-content-end">
+                    <p>
+                        {% if search_term or current_categories or current_sorting != 'None_None' %}
+                            <span><a href="{% url 'products' %}">View All Products </a> | </span>
+                        {% endif %}
+                        {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+                    </p>
+                </div>
+            </div>
             <div class="row">
                 {% for product in products %}
                     <div class="col-sm-6 col-md-6 col-lg-4 col-lx-3 mt-5">
@@ -60,12 +72,23 @@
                             </div>
                             <div class="card-footer pt-0 bg-orange text-left">
                                 <div class="row">
-                                    <div class="col">
-                                        <p class="lead mb-0 mt-2 text-left text-left font-weight-bold">${{ product.price }}</p>
+                                    <div class="col-6 text-left">
+                                        <p class="lead mb-0 mt-2 text-left text-left">${{ product.price }}</p>
                                         {% if product.rating %}
-                                            <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }}</small>
+                                            <small><i class="fas fa-star mr-1"></i>{{ product.rating }}</small>
                                         {% else %}
-                                            <small class="text-muted">No rating</small>
+                                            <small><i class="fas fa-star mr-1"></i> No rating</small>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        {% if product.in_stock %}
+                                            <p class="small mt-3">
+                                                In Stock: <i class="fa-solid fa-circle-check text-success"></i>
+                                            </p>
+                                        {% else %}
+                                            <p class="small mt-3">
+                                                In Stock: <i class="fa-solid fa-circle-xmark text-danger"></i>
+                                            </p>
                                         {% endif %}
                                     </div>
                                 </div>

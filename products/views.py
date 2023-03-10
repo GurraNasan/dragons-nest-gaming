@@ -13,6 +13,7 @@ def products_list(request):
     """
     products = Product.objects.all()
     query = None
+    categories = None
     sort = None
     direction = None
 
