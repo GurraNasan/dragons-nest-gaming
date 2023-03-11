@@ -97,6 +97,10 @@ body {
     min-width: 260px;
 }
 
+.sub-tag {
+    color: red;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */

@@ -58,15 +58,16 @@
                 {% for product in products %}
                     <div class="col-sm-6 col-md-6 col-lg-4 col-lx-3 mt-5">
                         <div class="card h-100 border-0">
-                            {% if product.image %}
-                                <a href="{% url 'product_info' product.id %}">
-                                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top img-fluid mt-2">
-                                </a>
-                            {% else %}
-                                <a href="{% url 'product_info' product.id %}">
-                                    <img src="{{ MEDIA_URL }}no_image.png" alt="{{ product.name }}" class="card-img-top img-fluid mt-2">
-                                </a>
-                            {% endif %}
+                            <div>
+                                {% if product.image %}
+                                    <a href="{% url 'product_info' product.id %}">
+                                        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top img-fluid mt-2">
+                                    </a>
+                                {% else %}
+                                    <a href="{% url 'product_info' product.id %}">
+                                        <img src="{{ MEDIA_URL }}no_image.png" alt="{{ product.name }}" class="card-img-top img-fluid mt-2">
+                                    </a>
+                                {% endif %}
                             <div class="card-body pb-0">
                                 <p class="mb-0">{{ product.name }}</p>
                             </div>
@@ -89,6 +90,13 @@
                                             <p class="small mt-3">
                                                 In Stock: <i class="fa-solid fa-circle-xmark text-danger"></i>
                                             </p>
+                                        {% endif %}
+                                            {% if product.sub_category %}
+                                            {% if product.sub_category.name == 'deals' %}
+                                                <div class="sub-tag"><i class="fa-solid fa-tag"></i></div>
+                                            {% else %}
+                                                <div class="text-black">New in store</div>  
+                                            {% endif %}
                                         {% endif %}
                                     </div>
                                 </div>
