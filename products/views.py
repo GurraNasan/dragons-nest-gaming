@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
 
-from .models import Product, Category
+from .models import Product, Category, SubCategory
 
 
 def products_list(request):
@@ -14,6 +14,7 @@ def products_list(request):
     products = Product.objects.all()
     query = None
     categories = None
+    subcategories = None
     sort = None
     direction = None
 
@@ -39,6 +40,12 @@ def products_list(request):
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
 
+        """Code for filter out diffrent subcategories """
+        if 'sub_category' in request.GET:
+            subcategories = request.GET['sub_category'].split(',')
+            products = products.filter(sub_category__name__in=subcategories)
+            subcategories = SubCategory.objects.filter(name__in=subcategories)
+
         """Code for searchbar function """
         if 'q' in request.GET:
             query = request.GET['q']
@@ -56,6 +63,7 @@ def products_list(request):
         'search_term': query,
         'current_sorting': current_sorting,
         'current_categories': categories,
+        'current_subcategories': subcategories,
     }
 
     return render(request, 'products/products.html', context)

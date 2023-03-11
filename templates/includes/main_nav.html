@@ -1,7 +1,7 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav w-auto mx-auto">
         <li class="nav-item dropdown">
-            <a href="#" class="logo-font font-weight-bold nav-link text-black" id="board-games" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="#" class="logo-font font-weight-bold nav-link text-black" id="card-games-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Card Games
             </a>
             <div class="dropdown-menu shadow">
@@ -14,7 +14,7 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a href="#" class="logo-font font-weight-bold nav-link text-black" id="board-games" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="#" class="logo-font font-weight-bold nav-link text-black" id="board-games-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Board Games
             </a>
             <div class="dropdown-menu shadow">
@@ -28,7 +28,7 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a href="#" class="logo-font font-weight-bold nav-link text-black" id="board-games" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="#" class="logo-font font-weight-bold nav-link text-black" id="miniature-games-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Miniature Games
             </a>
             <div class="dropdown-menu shadow">
@@ -40,7 +40,7 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a href="#" class="logo-font font-weight-bold nav-link text-black" id="board-games" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="#" class="logo-font font-weight-bold nav-link text-black" id="merch-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Merchandise
             </a>
             <div class="dropdown-menu shadow">
@@ -51,7 +51,7 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a href="#" class="logo-font font-weight-bold nav-link text-black" id="board-games" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="#" class="logo-font font-weight-bold nav-link text-black" id="accessories-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                  Game Accessories
             </a>
             <div class="dropdown-menu shadow">
@@ -63,10 +63,15 @@
             </div>
         </li>
 
-        <li class="nav-item">
-            <a href="" class="logo-font font-weight-bold nav-link text-black mr-5">
-                Events
+        <li class="nav-item dropdown">
+            <a href="#" class="logo-font font-weight-bold nav-link text-black"   id="others-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Others
             </a>
+            <div class="dropdown-menu shadow">
+                <a href="{% url 'products' %}?sub_category=deals" class="dropdown-item">Deals</a>
+                <a href="{% url 'products' %}?sub_category=new_arrival" class="dropdown-item">New arrived</a>
+                <a href="#" class="dropdown-item">Events</a>
+            </div>
         </li>
     </ul>
 </div>
