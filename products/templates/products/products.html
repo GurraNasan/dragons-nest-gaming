@@ -68,6 +68,13 @@
                                         <img src="{{ MEDIA_URL }}no_image.png" alt="{{ product.name }}" class="card-img-top img-fluid mt-2">
                                     </a>
                                 {% endif %}
+                                {% if product.sub_category %}
+                                    {% if product.sub_category.name == 'deals' %}
+                                        <div class="sub-tag text-danger font-weight-bold"><i class="fa-solid fa-tag deal-tag"></i> Deal</div>
+                                    {% else %}
+                                        <div class="bg-orange sub-tag">New!</div>  
+                                    {% endif %}
+                                {% endif %}
                             </div>
                             <div class="card-body pb-0">
                                 <p class="mb-0">{{ product.name }}</p>
@@ -92,13 +99,6 @@
                                                 In Stock: <i class="fa-solid fa-circle-xmark text-danger"></i>
                                             </p>
                                         {% endif %}
-                                            {% if product.sub_category %}
-                                                {% if product.sub_category.name == 'deals' %}
-                                                    <div class="sub-tag"><i class="fa-solid fa-tag"></i></div>
-                                                {% else %}
-                                                    <div class="text-black">New in store</div>  
-                                                {% endif %}
-                                            {% endif %}
                                     </div>
                                 </div>
                             </div>

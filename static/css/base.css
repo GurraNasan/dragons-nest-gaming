@@ -98,7 +98,13 @@ body {
 }
 
 .sub-tag {
-    color: red;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.deal-tag {
+    font-size: larger;
 }
 
 /* -------------------------------- Media Queries */

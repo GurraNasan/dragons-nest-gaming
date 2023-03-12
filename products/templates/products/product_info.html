@@ -26,6 +26,13 @@
                             <img src="{{ MEDIA_URL }}no_image.jpg" alt="{{ product.name }}" class="card-img-top img-fluid mt-2">
                         </a>
                     {% endif %}
+                    {% if product.sub_category %}
+                        {% if product.sub_category.name == 'deals' %}
+                            <div class="sub-tag text-danger font-weight-bold"><i class="fa-solid fa-tag deal-tag"></i> Deal</div>
+                        {% else %}
+                            <div class="bg-orange sub-tag">New!</div>  
+                        {% endif %}
+                    {% endif %}
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">

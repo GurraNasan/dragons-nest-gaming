@@ -50,7 +50,7 @@
         </li>
         
         <li class="list-inline-item">
-            <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none float-right" href="">
+            <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none float-right" href="{% url 'view_cart' %}">
                 <div class="text-center">
                     <div><i class="fas fa-cart-shopping fa-lg"></i></div>
                     <p class="my-0">
