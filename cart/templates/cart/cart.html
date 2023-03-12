@@ -24,5 +24,19 @@
         </div>
     </div>
     <div class="row">
+        <div class="col">
+            {% if bag_items %}
+            {% else %}
+               <div class="ml-3">
+                    <p class="lead">Nothing to find here.</p>
+                    <a href="{% url 'products' %}" class="btn btn-outline-dark rounde-2">
+                        <span class="icon">
+                            <i class="fa-solid fa-hand-point-left"></i>
+                        </span>
+                        <span class="text-uppercase">Back to store</span>
+                    </a>
+               </div> 
+            {% endif %}
+        </div>
     </div>
 {% endblock %}
