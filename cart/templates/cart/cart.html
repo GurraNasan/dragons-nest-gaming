@@ -19,15 +19,75 @@
                 <h2 class="text-uppercase">Your shopping cart</h2>
             </div>
         </div>
-        <div class="row">
-            <hr class="w-100">
-        </div>
     </div>
+    <!-- Layout for screens 768px and up -->
     <div class="row">
         <div class="col">
-            {% if bag_items %}
+            {% if cart_items %}
+                <div class="table-responsive rounded d-none d-md-block">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Product Image</th>
+                                <th>Product Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        {% for item in cart_items %}
+                        <tr>
+                            <td class="w-25 p-3">
+                                <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                            </td>
+                            <td>
+                                <p class="py-3"><strong>{{ item.product.name }}</strong></p>
+                            </td>
+                            <td>
+                                <p class="py-3">${{ item.product.price }}</p>
+                            </td>
+                            <td>
+                                <p class="py-3 w-25">{{ item.quantity }}</p>
+                            </td>
+                            <td>
+                                <p class="py-3">${{ item.product.price }}</p>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        <tr>
+                            <td colspan="5" class="pt-5 text-right">
+                                <h6><strong>Cart Total: ${{ total|floatformat:2 }}</strong></h6>
+                                <h6>Delivery: ${{ delivery|floatformat:2 }}</h6>
+                                <h4><strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong></h4>
+                                {% if free_delivery_delta > 0 %}
+                                    <p class="text-danger">
+                                        If you spend ${{ free_delivery_delta }} more, you get free delivery
+                                    </p>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="5" class="pt-5 text-right">
+                                <a href="{% url 'products' %}" class="btn back-store-btn rounde-2">
+                                    <span class="icon">
+                                        <i class="fa-solid fa-hand-point-left"></i>
+                                    </span>
+                                    <span class="text-uppercase">Back to store</span>
+                                </a>
+                                <a href="" class="btn add-cart-btn rounded">
+                                    <span class="text-uppercase">checkout</span>
+                                    <span class="icon">
+                                        <i class="fa-solid fa-cash-register"></i>
+                                    </span>
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
             {% else %}
                <div class="ml-3">
+                    <hr class="w-100">
                     <p class="lead">Nothing to find here.</p>
                     <a href="{% url 'products' %}" class="btn back-store-btn rounde-2">
                         <span class="icon">
