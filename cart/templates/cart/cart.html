@@ -38,7 +38,7 @@
                         {% for item in cart_items %}
                         <tr>
                             <td class="w-25 p-3">
-                                <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                                {% include 'cart/product_image.html' %}
                             </td>
                             <td>
                                 <p class="py-3"><strong>{{ item.product.name }}</strong></p>
@@ -47,10 +47,10 @@
                                 <p class="py-3">${{ item.product.price }}</p>
                             </td>
                             <td>
-                                <p class="py-3 w-25">{{ item.quantity }}</p>
+                                {% include 'cart/quantity_form.html' %}
                             </td>
                             <td>
-                                <p class="py-3">${{ item.product.price }}</p>
+                                <p class="py-3">${{ item.product.price}}</p>
                             </td>
                         </tr>
                         {% endfor %}
@@ -99,4 +99,9 @@
             {% endif %}
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    {% include 'products/includes/quantity_script.html' %}
 {% endblock %}
