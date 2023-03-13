@@ -49,16 +49,6 @@ body {
     z-index: -1;
 }
 
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-    background: #000;
-    color: white;
-}
-
 .text-black {
     color: #000 !important;
 }
@@ -128,6 +118,14 @@ body {
     padding: 6px 3px;
 }
 
+.back-to-top-btn {
+    position: fixed;
+    height: 42px;
+    width: 42px;
+    bottom: 10px;
+    right: 10px;
+}
+
 .quantity-input {
     padding: 6px 0px 6px 6px;
 }
@@ -140,6 +138,12 @@ body {
 
 .deal-tag {
     font-size: larger;
+}
+
+.back-to-top-link,
+.update-item,
+.remove-item {
+    cursor: pointer;
 }
 
 /* -------------------------------- Media Queries */
