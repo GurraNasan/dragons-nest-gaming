@@ -20,10 +20,47 @@
             </div>
         </div>
     </div>
-    <!-- Layout for screens 768px and up -->
+
+
     <div class="row">
         <div class="col">
             {% if cart_items %}
+                <!-- Layout for small screens up to 768px -->
+                <div class="d-block d-md-none">
+                    {% for item in cart_items %}
+                        <div class="row">
+                            <div class="col-12 col-sm-6 mb-2 img">
+                                {% include 'cart/product_image.html' %}
+                            </div>
+                            <div class="col-12 col-sm-6 mb-2">
+                                <p class="py-3">{{ item.product.name }}</p>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                {% include 'cart/quantity_form.html' %}
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <p class="my-0">Price: ${{ item.product.price }}</p>
+                                <p><strong>Subtotal: </strong>${{ item.product.price }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="row">
+                        <div class="col">
+                            {% include 'cart/cart_total.html' %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            {% include 'cart/cart_buttons.html' %}
+                        </div>
+                    </div>
+                </div>
+                <!-- Layout for screens 768px and up -->
                 <div class="table-responsive rounded d-none d-md-block">
                     <table class="table table-sm">
                         <thead>
@@ -56,30 +93,12 @@
                         {% endfor %}
                         <tr>
                             <td colspan="5" class="pt-5 text-right">
-                                <h6><strong>Cart Total: ${{ total|floatformat:2 }}</strong></h6>
-                                <h6>Delivery: ${{ delivery|floatformat:2 }}</h6>
-                                <h4><strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong></h4>
-                                {% if free_delivery_delta > 0 %}
-                                    <p class="text-danger">
-                                        If you spend ${{ free_delivery_delta }} more, you get free delivery
-                                    </p>
-                                {% endif %}
+                                {% include 'cart/cart_total.html' %}
                             </td>
                         </tr>
                         <tr>
                             <td colspan="5" class="pt-5 text-right">
-                                <a href="{% url 'products' %}" class="btn back-store-btn rounde-2">
-                                    <span class="icon">
-                                        <i class="fa-solid fa-hand-point-left"></i>
-                                    </span>
-                                    <span class="text-uppercase">Back to store</span>
-                                </a>
-                                <a href="" class="btn add-cart-btn rounded">
-                                    <span class="text-uppercase">checkout</span>
-                                    <span class="icon">
-                                        <i class="fa-solid fa-cash-register"></i>
-                                    </span>
-                                </a>
+                                {% include 'cart/cart_buttons.html' %}
                             </td>
                         </tr>
                     </table>
@@ -104,4 +123,24 @@
 {% block postloadjs %}
     {{ block.super }}
     {% include 'products/includes/quantity_script.html' %}
+
+    <script type="text/javascript">
+
+        $('.update-item').click(function(e) {
+            var form = $(this).prev('.update-form');
+            form.submit();
+        })
+
+        $('.remove-item').click(function(e) {
+            var csrfToken = "{{ csrf_token }}";
+            var itemId = $(this).attr('id').split('remove_')[1];
+            var url = `/cart/remove/${itemId}`;
+            var data = {'csrfmiddlewaretoken': csrfToken};
+
+            $.post(url, data)
+            .done(function() {
+                location.reload();
+            });
+        })
+    </script>
 {% endblock %}

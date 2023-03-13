@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.contrib import messages
 from products.models import Product
 
@@ -23,3 +23,30 @@ def add_to_cart(request, item_id):
 
     request.session['cart'] = cart
     return redirect(redirect_url)
+
+
+def adjust_cart(request, item_id):
+    """ update quantity of a product in the cart """
+
+    product = get_object_or_404(Product, pk=item_id)
+    quantity = int(request.POST.get('quantity'))
+    cart = request.session.get('cart', {})
+
+    if quantity > 0:
+        cart[item_id] = quantity
+    else:
+        cart.pop[item_id]
+
+    request.session['cart'] = cart
+    return redirect(reverse('view_cart'))
+
+
+def remove_from_cart(request, item_id):
+    """ Remove product from cart """
+    product = get_object_or_404(Product, pk=item_id)
+    cart = request.session.get('cart', {})
+
+    cart.pop(item_id)
+
+    request.session['cart'] = cart
+    return HttpResponse(status=200)
