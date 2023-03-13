@@ -27,7 +27,7 @@
             </div>
         </form>
     </div>
-    <div class="col-4 d-flex justify-content-between">  
+    <div class="col-4 d-flex">  
         <li class="list-inline-item dropdown">
             <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="text-center">
@@ -50,9 +50,15 @@
         </li>
         
         <li class="list-inline-item">
-            <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none float-right" href="{% url 'view_cart' %}">
+            <a class="{% if grand_total %}text-danger font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none float-right" href="{% url 'view_cart' %}">
                 <div class="text-center">
-                    <div><i class="fas fa-cart-shopping fa-lg"></i></div>
+                    <div>
+                        {% if grand_total %}
+                            <i class="fa-solid fa-cart-plus fa-lg"></i>
+                        {% else %}
+                            <i class="fas fa-cart-shopping fa-lg"></i>
+                        {% endif %}
+                    </div>
                     <p class="my-0">
                         {% if grand_total %}
                             ${{ grand_total|floatformat:2 }}
