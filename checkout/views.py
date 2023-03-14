@@ -30,17 +30,18 @@ def checkout(request):
             'phone_number': request.POST['phone_number'],
             'street_address1': request.POST['street_address1'],
             'street_address2': request.POST['street_address2'],
+            'city': request.POST['city'],
             'postcode': request.POST['postcode'],
             'country': request.POST['country'],
         }
         order_form = OrderForm(form_data)
 
-        # If form valid
         if order_form.is_valid():
+            order = order_form.save()
             order_form.save()
             for item_id, quantity in cart.items():
                 try:
-                    product = product.objects.get(id=item_id)
+                    product = Product.objects.get(id=item_id)
                     product.available = product.available - quantity
                     product.save()
                     if isinstance(quantity, int):
