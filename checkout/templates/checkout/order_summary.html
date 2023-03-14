@@ -1,0 +1,47 @@
+{% load cart_tools %}
+
+<p>Order Summary ({{ product_count }})</p>
+<div class="row">
+    <div class="col-7 offset-2">
+        <p class="mb-1 mt-0 small">Item</p>
+    </div>
+    <div class="col-3 text-right">
+        <p class="mt-0 mr-2 small">Subtotal</p>
+    </div>
+</div>
+{% for item in cart_items %}
+    <div class="row">
+        <div class="col-2 my-2">
+            {% if item.product.image %}
+                <a href="{% url 'product_info' item.product.id %}">
+                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="card-img-top img-fluid mt-2">
+                </a>
+            {% else %}
+                <a href="{% url 'product_info' item.product.id %}">
+                    <img src="{{ MEDIA_URL }}no_image.png" alt="{{ item.product.name }}" class="card-img-top img-fluid mt-2">
+                </a>
+            {% endif %}
+        </div>
+        <div class="col-7">
+            <p class="my-2">{{ item.product.name }}</p>
+            <p class="my-2 small">Qty: {{ item.quantity }}</p>
+        </div>
+        <div class="col-3 text-right">
+            <p class="my-2 mr-2 small">${{ item.product.price | calc_subtotal:item.quantity }}</p>
+        </div>
+    </div>
+{% endfor %}
+<hr class="my-3">
+
+<div class="row text-right mr-2">
+    <div class="col-7 offset-2">
+        <p class="my-0">Order Total:</p>
+        <p class="my-0">Delivery:</p>
+        <p class="my-0"><strong>Grand Total:</strong></p>
+    </div>
+    <div class="col-3">
+        <p class="my-0">${{ total }}</p>
+        <p class="my-0">${{ delivery}}</p>
+        <p class="my-0"><strong>${{ grand_total }}</strong></p>
+    </div>
+</div>
