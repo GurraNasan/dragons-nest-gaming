@@ -41,3 +41,8 @@ select:invalid,
 selection option[value=""] {
     color: gray !important;
 }
+
+.fieldset-label {
+    position: relative;
+    right: 0.5rem;
+}
