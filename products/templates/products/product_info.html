@@ -78,11 +78,11 @@
                                         </div>
 
                                         <input type="number" class="form-control qty_input id_qty_{{ product.id }}" type="numbers" name="quantity" value="1"
-                                            min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}" aria-label="item quantity">
+                                            min="1" max="{{ product.available }}" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}" aria-label="item quantity">
 
                                         <div class="input-group-append">
                                             <button class="increment-qty btn back-store-btn  increment-qty_{{ product.id }}"
-                                                data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}" aria-label="increment item">
+                                                data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}" aria-label="increment item" data-available="{{ product.available }}">
                                                 <span class="icon">
                                                     <i class="fas fa-plus"></i>
                                                 </span>
@@ -92,13 +92,22 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <a href="{% url 'products' %}" class="btn back-store-btn rounden-2 mb-2">
-                                    <span class="icon">
-                                        <i class="fa-solid fa-hand-point-left"></i>
-                                    </span>
-                                    <span class="text-uppercase">Back to store</span>
-                                </a>
-                                <input type="submit" class="btn add-cart-btn rounded-2 text-uppercase mb-2" value="Add to cart">
+                                {% if product.available == 0 %}
+                                    <a href="{% url 'products' %}" class="btn back-store-btn rounden-2 mb-2">
+                                        <span class="icon">
+                                            <i class="fa-solid fa-hand-point-left"></i>
+                                        </span>
+                                        <span class="text-uppercase">Back to store</span>
+                                    </a>
+                                {% else %}
+                                    <a href="{% url 'products' %}" class="btn back-store-btn rounden-2 mb-2">
+                                        <span class="icon">
+                                            <i class="fa-solid fa-hand-point-left"></i>
+                                        </span>
+                                        <span class="text-uppercase">Back to store</span>
+                                    </a>
+                                    <input type="submit" class="btn add-cart-btn rounded-2 text-uppercase mb-2" value="Add to cart">
+                                {% endif %}
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
