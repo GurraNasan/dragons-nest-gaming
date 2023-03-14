@@ -14,11 +14,11 @@
         <div class="col-2 my-2">
             {% if item.product.image %}
                 <a href="{% url 'product_info' item.product.id %}">
-                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="card-img-top img-fluid mt-2">
+                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="w-100">
                 </a>
             {% else %}
                 <a href="{% url 'product_info' item.product.id %}">
-                    <img src="{{ MEDIA_URL }}no_image.png" alt="{{ item.product.name }}" class="card-img-top img-fluid mt-2">
+                    <img src="{{ MEDIA_URL }}no_image.png" alt="{{ item.product.name }}" class="w-100">
                 </a>
             {% endif %}
         </div>

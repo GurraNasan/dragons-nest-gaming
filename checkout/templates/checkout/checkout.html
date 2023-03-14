@@ -2,6 +2,10 @@
 {% load static %}
 {% load cart_tools %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -17,7 +21,7 @@
     <div class="container-fluid">
         <div class="row d-flex">
             <div class="col text-center">
-                <h2 class="text-uppercase">Checkout</h2>
+                <h2 class="text-uppercase test">Checkout</h2>
             </div>
         </div>
     </div>
@@ -64,6 +68,7 @@
                         {% endif %}
                     </div>
                 </fieldset>
+
                 <fieldset class="px-3">
                     <legend class="fieldset-label px-2 w-auto">Payment Information</legend>
                     <div class="mb-3" id="card-element"></div>
