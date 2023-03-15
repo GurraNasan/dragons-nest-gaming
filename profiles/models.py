@@ -49,6 +49,11 @@ class UserProfile(models.Model):
         null=True,
         blank=True,
     )
+    default_email = models.EmailField(
+        max_length=20,
+        null=True,
+        blank=True,
+    )
 
     def __str__(self):
         return self.user.username
