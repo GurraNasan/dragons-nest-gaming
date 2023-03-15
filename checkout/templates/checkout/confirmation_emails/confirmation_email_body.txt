@@ -1,0 +1,27 @@
+Hi {{ order.full_name }}!
+
+This email is a confirmation of your recent order made at Dragons Nest Gaming. 
+Your order inforamtion is below:
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.data }}
+
+Order Total: ${{ order.order_total }}
+Delivery: ${{ order.delivery_cost }}
+Grand Total: {{ order.grand_total }}
+
+Your order will be delivered to:
+
+{{ order.full_name }}
+{{ order.street_addres1 }}
+{{ order.street_addres2 }}
+{{ order.postcode}}{{ order.city }}
+{{ order.country }}
+
+If you have any question or the information is incorrect,
+Please contact us at: dragonsnestgamingas@gmail.com.
+
+Thank you for your order.
+
+Best wishes
+Dragons Nest Gaming
