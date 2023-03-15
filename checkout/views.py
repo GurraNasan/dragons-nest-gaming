@@ -66,6 +66,8 @@ def checkout(request):
                 try:
                     product = Product.objects.get(id=item_id)
                     product.available = product.available - quantity
+                    if product.available <= 0:
+                        product.in_stock = False
                     product.save()
                     if isinstance(quantity, int):
                         order_line_item = OrderLineItem(
