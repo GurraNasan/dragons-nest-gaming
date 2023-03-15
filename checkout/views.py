@@ -15,8 +15,8 @@ from django.conf import settings
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from products.models import Product
-from profile.forms import UserProfileForm
-from profile.model import UserProfile
+from profiles.forms import UserProfileForm
+from profiles.models import UserProfile
 
 from cart.contexts import cart_contents
 
@@ -104,18 +104,18 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        if request.user.is_autenticated:
+        if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
                 order_form = OrderForm(initial={
                     'full_name': profile.default_full_name,
-                    'email': profile.user.eamil,
+                    'email': profile.user.email,
                     'phone_number': profile.default_phone_number,
-                    'street_address1': profile.default.street_address1,
-                    'street_address2': profile.default.street_address2,
-                    'postcode': profile.default.postcode,
-                    'city': profile.default.city,
-                    'country': profile.default.country,
+                    'street_address1': profile.default_street_address1,
+                    'street_address2': profile.default_street_address2,
+                    'postcode': profile.default_postcode,
+                    'city': profile.default_city,
+                    'country': profile.default_country,
 
                 })
             except UserProfile.DoesNotExist:
@@ -142,10 +142,11 @@ def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
-    if request.user.is_autenticated:
+    if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
         # attach user profile to order
-        order.user_profile = profileorder.save()
+        order.user_profile = profile
+        order.save()
 
         # save user info
         if save_info:
@@ -155,7 +156,7 @@ def checkout_success(request, order_number):
                 'default_street_address1': order.street_address1,
                 'default_street_address2': order.street_address2,
                 'default_postcode': order.postcode,
-                'default_city': order.town_or_city,
+                'default_city': order.city,
                 'default_country': order.country,
             }
             user_profile_form = UserProfileForm(profile_data, instance=profile)
