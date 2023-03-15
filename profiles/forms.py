@@ -14,7 +14,6 @@ class UserProfileForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         placeholders = {
             'default_full_name': 'Full Name',
-            'default_email': 'Email Address',
             'default_phone_number': 'Phone Number',
             'default_street_address1': 'Address',
             'default_street_address2': 'Address',
@@ -23,9 +22,7 @@ class UserProfileForm(forms.ModelForm):
         }
 
         self.fields['default_full_name'].widget.attrs['autofocus'] = True
-
         self.fields['default_full_name'].widget.attrs['aria-label'] = 'Full Name'
-        self.fields['default_email'].widget.attrs['aria-label'] = 'Email Address'
         self.fields['default_phone_number'].widget.attrs['aria-label'] = 'Phone Number'
         self.fields['default_postcode'].widget.attrs['aria-label'] = 'Post Code'
         self.fields['default_city'].widget.attrs['aria-label'] = 'City'

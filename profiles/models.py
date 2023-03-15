@@ -12,7 +12,10 @@ class UserProfile(models.Model):
     Allows a user to save their default delivery address
     & view their order history
     """
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(
+        User,
+        on_delete=models.CASCADE
+    )
 
     default_full_name = models.CharField(
         max_length=100,
@@ -45,11 +48,6 @@ class UserProfile(models.Model):
         blank=True,
     )
     default_phone_number = models.CharField(
-        max_length=20,
-        null=True,
-        blank=True,
-    )
-    default_email = models.EmailField(
         max_length=20,
         null=True,
         blank=True,
