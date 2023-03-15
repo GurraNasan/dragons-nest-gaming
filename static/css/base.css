@@ -14,6 +14,10 @@ body {
     padding-bottom: 300px;
 }
 
+.allauth-down {
+    padding-top: 300px;
+}
+
 .push-down {
     padding-top: 25%;
 }
@@ -192,7 +196,9 @@ body {
     border-bottom-color: #17a2b8 !important;
 }
 
-
+.center {
+    margin: auto;
+}
 
 /* -------------------------------- Media Queries */
 
