@@ -26,3 +26,31 @@ def rating(request):
     }
 
     return render(request, template, context)
+
+
+def add_rating(request):
+    """
+        A view to add rating and reviews
+    """
+
+    profile = get_object_or_404(UserProfile, user=request.user)
+
+    if request.method == 'POST':
+        form = RatingForm(request.POST)
+
+        if form.is_valid():
+            form.instance.user_profile = profile
+            form.save()
+            messages.success(request, 'Thanks! All worked')
+            return redirect(reverse('add_rating'))
+        else:
+            messages.error(request, 'Failed, please try again')
+    else:
+        form = RatingForm()
+
+    template = 'rating/add_rating.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)

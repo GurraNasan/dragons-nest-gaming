@@ -50,9 +50,10 @@ class StripeWH_Handler:
         save_info = intent.metadata.save_info
 
         # get the charge objects
-        billing_details = intent.charges.data[0].billing_details
+        stripe_charge = stripe.Charge.retrieve(intent.latest_charge)
+        billing_details = stripe_charge.billing_details
         shipping_details = intent.shipping
-        grand_total = round(intent.data.charges[0].amount / 100, 2)
+        grand_total = round(stripe_charge.amount / 100, 2)
 
         # clean data from shipping details to prevent empty strings
         for field, value in shipping_details.address.items():

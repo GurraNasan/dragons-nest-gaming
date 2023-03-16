@@ -7,4 +7,9 @@ urlpatterns = [
         views.rating,
         name="rating"
     ),
+    path(
+        'add/',
+        views.add_rating,
+        name="add_rating",
+    ),
 ]
