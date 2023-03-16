@@ -10,6 +10,10 @@ body {
     font-size: medium;
 }
 
+.navbar {
+    padding: 0;
+}
+
 .header-container {
     padding-bottom: 300px;
 }
