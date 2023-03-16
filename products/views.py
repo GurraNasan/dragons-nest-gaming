@@ -52,7 +52,10 @@ def products_list(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "I think you forgot to write anything, TRY AGAIN!")
+                messages.error(
+                    request,
+                    'I think you forgot to write anything, TRY AGAIN!'
+                    )
                 return redirect(reverse('products'))
 
             queries = Q(name__icontains=query) | Q(description__icontains=query)
