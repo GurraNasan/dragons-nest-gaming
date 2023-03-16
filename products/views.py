@@ -111,3 +111,36 @@ def add_product(request):
     }
 
     return render(request, template, context)
+
+
+def edit_product(request, product_id):
+    """
+        view to edit a product
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Can´t do that, need to be a Administrator \
+            to do that')
+        return redirect(reverse('home'))
+
+    product = get_object_or_404(Product, pk=product_id)
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Successfully updated product \
+                {product.name}!')
+            return redirect(reverse('product_info', args=[product.id]))
+        else:
+            messages.error(request, 'Failed to update product. \
+                Please ensure the form is valid')
+    else:
+        form = ProductForm(instance=product)
+        messages.info(request, f'You are editing {product.name}')
+
+    template = 'products/edit_products.html'
+    context = {
+        'form': form,
+        'product': product,
+    }
+
+    return render(request, template, context)

@@ -91,6 +91,11 @@
                                     </div>
                                 </div>
                             </div>
+                            {% if request.user.is_superuser %}
+                                <div>
+                                    <a href="{% url 'edit_product' product.id %}">Update</a>
+                                </div>
+                            {% endif %}
                             <div class="col-12">
                                 {% if product.available == 0 %}
                                     <a href="{% url 'products' %}" class="btn back-store-btn rounden-2 mb-2">
