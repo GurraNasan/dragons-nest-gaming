@@ -5,6 +5,7 @@ html {
 body {
     background: url('/media/magic_home_background2.jpg') no-repeat center center fixed;
     background-size: cover;
+    min-height: 100vh;
     color: #000;
     font-family: 'K2D', sans-serif;
     font-size: medium;
@@ -12,14 +13,6 @@ body {
 
 .navbar {
     padding: 0;
-}
-
-.header-container {
-    padding-bottom: 300px;
-}
-
-.allauth-down {
-    padding-top: 300px;
 }
 
 .push-down {
@@ -127,10 +120,10 @@ body {
 
 .back-to-top-btn {
     position: fixed;
-    height: 42px;
-    width: 42px;
-    bottom: 10px;
-    right: 10px;
+    height: 50px;
+    width: 50px;
+    bottom: 25px;
+    right: 25px;
 }
 
 .quantity-input {

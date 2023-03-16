@@ -130,11 +130,7 @@
 {% block postloadjs %}
     {{ block.super }}
     {% include 'products/includes/quantity_script.html' %}
-    <script type="text/javascript">
-        $('.back-to-top-btn').click(function(e) {
-            window.scrollTo(0,0)
-        });
-    </script>
+    {% include 'cart/includes/back_to_top.html' %}
 
     <script type="text/javascript">
 

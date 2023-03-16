@@ -130,11 +130,18 @@
                     {% endif %}
                 {% endfor %}
             </div>
+            <div class="back-to-top-btn">
+                <a class="back-to-top-link btn btn-orange">
+                    <i class="fa-solid fa-hand-point-up"></i>
+                </a>
+            </div>
         </div>
     </div>
 {% endblock %}
 
 {% block postloadjs %}
+    {{ block.super }}
+    {% include 'cart/includes/back_to_top.html' %}
     <script type="text/javascript">
         $('#sort-selector').change(function() {
             var selector = $(this);
