@@ -6,14 +6,14 @@
     <div class="container push-down">
         <div class="row d-flex">
             <div class="col text-center">
-                <h2 class="text-uppercase test">Add Review</h2>
+                <h2 class="text-uppercase test">Edit Review</h2>
             </div>
         </div>
 
 
         <div class="row">
             <div class="col-12">
-                <form method="POST" action="{% url 'add_rating' %}" class="form mb-2" enctype="multipart/form-data">
+                <form method="POST" action="{% url 'edit_rating' rating.id %}" class="form mb-2">
                     {% csrf_token %}
                     {{ form|crispy }}
                     <div class="text-center">
@@ -23,7 +23,7 @@
                         </a>
                         <button class="btn btn-outline-success my-2" type="submit">
                             <span><i class="fa-solid fa-plus"></i></span>
-                            <span>Add Review</span>
+                            <span>Edit Review</span>
                         </button>
                     </div>
                 </form>

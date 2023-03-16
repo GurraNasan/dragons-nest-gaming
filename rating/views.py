@@ -54,3 +54,53 @@ def add_rating(request):
     }
 
     return render(request, template, context)
+
+
+def edit_rating(request, rating_id):
+    """
+        A view to edit rating and reviews
+    """
+
+    profile = get_object_or_404(UserProfile, user=request.user)
+    rating = get_object_or_404(Rating, pk=rating_id)
+    if request.user != rating.user_profile.user:
+        messages.error(
+            request, 'You don´t have permission to edit this review'
+        )
+        return redirect('home')
+
+    if request.method == 'POST':
+        form = RatingForm(request.POST, instance=rating)
+        if form.is_valid():
+            form.instance.user_profile = profile
+            form.save()
+            messages.success(request, 'Thanks! All worked')
+            return redirect('rating')
+        else:
+            messages.error(request, 'Failed, please try again')
+    else:
+        form = RatingForm(instance=rating)
+
+    template = 'rating/edit_rating.html'
+    context = {
+        'form': form,
+        'rating': rating,
+    }
+
+    return render(request, template, context)
+
+
+def delete_rating(request, rating_id):
+    """
+        A view for delete rating and review
+    """
+    rating = get_object_or_404(Rating, pk=rating_id)
+    if request.user != rating.user_profile.user:
+        messages.error(
+            request, 'You don´t have permission to delete this review'
+        )
+        return redirect('home')
+
+    rating.delete()
+    messages.success(request, 'Rating/Review successfully deleted')
+    return redirect('rating')
