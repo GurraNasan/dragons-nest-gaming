@@ -24,15 +24,29 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-lg-6">
-                <form action="{% url 'profile' %}" method="POST" id="rating-update-form">
-                    {% csrf_token %}
-                    {{ form|crispy }}
-                    <button class="btn btn add-cart-btn float-right">
-                        <span class="mr-2"><i class="fa-solid fa-user-pen"></i></span>
-                        <span>Update Information</span>
-                    </button>
-                </form>
+            {% if user_ratings %}
+                {% for rating in user_ratings %}
+                    <div class="col-12 col-lg-6">
+                        <div class="card">
+                            {% if rating.review_title %}
+                                <h4 class="bg-orange card-header text-center text-uppercase">{{ rating.product }}</h4>
+                            {% endif %}
+                            <div class="card-body">
+                                <h3 class="card-title">{{ rating.review_title }}</h3>
+                                <p><i class="fa-solid fa-star"></i>{{ rating.rating }} /5</p>
+                                {% if rating.review %}
+                                    <p>{{ rating.review }}</p>
+                                {% endif %}
+                            </div>
+                            <div class="card-footer text-uppercase text-center">
+                                <p>Writen by: {{ rating.user_profile}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>You have no ratings or reviews</p>
+            {% endif%}
             </div>
         </div>
     </div>

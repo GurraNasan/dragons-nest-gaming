@@ -11,6 +11,7 @@ class Rating(models.Model):
         on_delete=models.SET_NULL,
         null=True,
         )
+
     product = models.ForeignKey(
         Product,
         on_delete=models.CASCADE,
