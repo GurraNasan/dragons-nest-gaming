@@ -144,3 +144,19 @@ def edit_product(request, product_id):
     }
 
     return render(request, template, context)
+
+
+def delete_product(request, product_id):
+    """
+        view to delete product
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Can´t do that, need to be a Administrator \
+            to do that')
+        return redirect(reverse('home'))
+
+    product = get_object_or_404(Product, pk=product_id)
+    product.delete()
+    messages.success(request, f'Product {product.name} \
+        has been deleted!')
+    return redirect(reverse('product_info'))

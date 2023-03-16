@@ -91,11 +91,6 @@
                                     </div>
                                 </div>
                             </div>
-                            {% if request.user.is_superuser %}
-                                <div>
-                                    <a href="{% url 'edit_product' product.id %}">Update</a>
-                                </div>
-                            {% endif %}
                             <div class="col-12">
                                 {% if product.available == 0 %}
                                     <a href="{% url 'products' %}" class="btn back-store-btn rounden-2 mb-2">
@@ -117,6 +112,41 @@
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
                     </form>
+
+                    {% if request.user.is_superuser %}
+                    <div class="mb-2">
+                        <small>
+                            <a class="btn btn-success" href="{% url 'edit_product' product.id %}">Update</a>
+                            <button type="button" data-toggle="modal" data-target="#deleteModal-{{ product.id }}" class="btn btn-danger ml-3">
+                                Delete
+                            </button>
+                        </small>
+                    </div>
+                    <div class="modal" tabindex="-1" role="dialog" id="deleteModal-{{ product.id }}">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Delete Product</h5>
+                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Are you sure you want to delete {{ product.name }}!</p>
+                                    <p>This is permanent and can not be undone!</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="{% url 'delete_product' product.id %}" class="btn btn-outline-danger my-2">
+                                        <span class="mr-2"><i class="fa-solid fa-trash-can"></i></span>
+                                        <span>Delete Product</span>
+                                    </a>
+                                    <button type="button" class="btn back-store-btn" data-dismiss="modal">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+
                     <div class="border-black">
                         <div class="text-center text-black bg-orange ">
                             Product info
