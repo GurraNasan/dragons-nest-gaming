@@ -56,8 +56,8 @@
                         </p>
                     {% endif %}
 
-                    {% if product.rating %}
-                        <small class="text-muted mb-3"><i class="fa-solid fa-star mb-2"></i>{{ product.rating }}</small>
+                    {% if average_rating %}
+                        <small class="text-muted mb-3"><i class="fa-solid fa-star mb-2"></i>{{ average_rating }} / 5.0</small>
                     {% else %}
                         <small class="text-muted mb-3"><i class="fa-solid fa-star mb-2"></i> No rating</small>
                     {% endif %}
@@ -160,6 +160,49 @@
                 </div>
             </div>
         </div>
+        {% if ratings %}
+            <div class="row justify-content-center mt-2">
+                <div class="col-8">
+                    <div id="reviewInterval" class="carousel slide" data-ride="carousel">
+                        {% for rating in ratings %}
+                            <div class="carousel-inner">
+                                <div class="carousel-item active" data-interval="10000">
+                                    <div class="card">
+                                        {% if rating.review_title %}
+                                            <div class="card-header">
+                                                <h4 class="bg-orange card-header text-center text-uppercase">{{ rating.review_title }}</h4>
+                                            </div>
+                                        {% endif %}
+                                        <p>
+                                            <i class="fa-solid fa-star"></i>
+                                            <span>{{ rating.rating}} / 5</span>
+                                            <span class="sr-only">{{ rating.rating}} out of 5</span>
+                                        </p>
+                                        {% if rating.review %}
+                                        <div class="card-body">
+                                        <p class="card-text">{{rating.review|linebreaksbr }}</p>
+                                        <span class="sr-only">{{rating.review }}</span>
+                                        </div>
+                                        {% endif %}
+                                        <div class="card-footer text-uppercase text-center">
+                                            <p>Writen by: {{ rating.user_profile}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        <button class="carousel-control-prev" type="button" data-target="#reviewInterval" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-target="#reviewInterval" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
     </div>
 {% endblock %}
 

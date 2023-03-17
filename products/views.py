@@ -6,6 +6,8 @@ from django.db.models.functions import Lower
 
 from .models import Product, Category, SubCategory
 from .forms import ProductForm
+from rating.models import Rating
+from .utils import get_product_rating, get_averge_rating
 
 
 def products_list(request):
@@ -79,9 +81,13 @@ def product_info(request, product_id):
         A view for a singel product info
     """
     product = get_object_or_404(Product, pk=product_id)
+    ratings = get_product_rating(product_id)
+    average_rating = get_averge_rating(product_id)
 
     context = {
         'product': product,
+        'ratings': ratings,
+        'average_rating': average_rating
     }
 
     return render(request, 'products/product_info.html', context)
