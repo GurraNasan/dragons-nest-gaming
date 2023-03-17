@@ -19,6 +19,9 @@ class Category(models.Model):
 
 class SubCategory(models.Model):
     """ Models for deals or new arrivals """
+    class Meta:
+        verbose_name_plural = 'Subcategories'
+
     name = models.CharField(max_length=200)
     friendly_name = models.CharField(max_length=200, null=True, blank=True)
 
@@ -50,12 +53,6 @@ class Product(models.Model):
     in_stock = models.BooleanField(default=True)
     available = models.DecimalField(max_digits=3, decimal_places=0)
     new_arrival = models.BooleanField(default=False, null=True, blank=True)
-    rating = models.DecimalField(
-        max_digits=6,
-        decimal_places=2,
-        null=True,
-        blank=True
-    )
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
 
