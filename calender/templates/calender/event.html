@@ -17,7 +17,7 @@
                 <form method="POST">
                     {% csrf_token %}
                     {{ form | crispy }}
-                    <button class="btn add-cart-btn float-right" type="submit"> Add event</button>
+                    <button class="btn add-cart-btn float-right" type="submit"> Edit event</button>
                 </form>
                 <a href="{% url 'calender:calendar' %}" class="btn back-store-btn float-left">Back to Calendar</a>
             </div>

@@ -3,10 +3,13 @@ from django.shortcuts import (
     render,
     get_object_or_404,
     HttpResponseRedirect,
-    reverse
+    reverse,
+    redirect,
 )
 from django.views.generic.list import ListView
 from django.utils.safestring import mark_safe
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 import calendar
 
 from .models import Event
@@ -58,6 +61,11 @@ def get_date(req_day):
 
 
 def event(request, event_id=None):
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Can´t do that, need to be a Administrator')
+        return redirect(reverse('home'))
+
     instance = Event()
     if event_id:
         instance = get_object_or_404(Event, pk=event_id)
@@ -69,3 +77,30 @@ def event(request, event_id=None):
         form.save()
         return HttpResponseRedirect(reverse('calender:calendar'))
     return render(request, 'calender/event.html', {'form': form})
+
+
+def event_info(request, event_id):
+    event = get_object_or_404(Event, pk=event_id)
+
+    context = {
+        'event': event,
+    }
+
+    return render(request, 'calender/event_info.html', context)
+
+
+@login_required
+def delete_event(request, event_id):
+    """
+        view to delete event
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Can´t do that, need to be a Administrator \
+            to do that')
+        return redirect(reverse('home'))
+
+    event = get_object_or_404(Event, pk=event_id)
+    event.delete()
+    messages.success(request, f'Event {event.title} \
+        has been deleted!')
+    return redirect(reverse('calender:calendar'))

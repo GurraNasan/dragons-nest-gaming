@@ -17,6 +17,9 @@
                 {{ calendar }}
             </div>
                 <a href="{% url 'calender:calendar' %}?{{ prev_month }}" class="btn back-store-btn float-left ml-1">Previous</a>
+                {% if request.user.is_superuser %}
+                    <a href="{% url 'calender:add_event' %}" class="btn btn-success">Add event</a>
+                {% endif %}
                 <a href="{% url 'calender:calendar' %}?{{ next_month }}" class="btn back-store-btn float-right mr-1">Next</a>
             </div>
         </div>

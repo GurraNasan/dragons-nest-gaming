@@ -70,7 +70,7 @@
             <div class="dropdown-menu shadow">
                 <a href="{% url 'products' %}?sub_category=deals" class="dropdown-item">Deals</a>
                 <a href="{% url 'products' %}?sub_category=new_arrival" class="dropdown-item">New arrived</a>
-                <a href="#" class="dropdown-item">Events</a>
+                <a href="{% url 'calender:calendar' %}" class="dropdown-item">Events</a>
             </div>
         </li>
     </ul>
