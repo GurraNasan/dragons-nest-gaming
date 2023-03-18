@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Event(models.Model):
@@ -12,3 +13,8 @@ class Event(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def get_html_url(self):
+        url = reverse('calender:edit_event', args=(self.id,))
+        return f'<a href="{url}"> {self.title} </a>'

@@ -14,10 +14,12 @@
     <div class="container mt-3">
         <div class="row">
             <div class="col-12">
-                {{ calendar }}
-            </div>
-                <a href="{% url 'calender:calendar' %}?{{ prev_month }}" class="btn back-store-btn float-left ml-1">Previous</a>
-                <a href="{% url 'calender:calendar' %}?{{ next_month }}" class="btn back-store-btn float-right mr-1">Next</a>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <button class="btn add-cart-btn float-right" type="submit"> Add event</button>
+                </form>
+                <a href="{% url 'calender:calendar' %}" class="btn back-store-btn float-left">Back to Calendar</a>
             </div>
         </div>
     </div>
