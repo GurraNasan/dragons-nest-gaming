@@ -8,6 +8,7 @@ from .models import Rating
 from .forms import RatingForm
 
 
+@login_required
 def rating(request):
     """
         A view to return the rating/reviews page
@@ -27,7 +28,7 @@ def rating(request):
 
     return render(request, template, context)
 
-
+@login_required
 def add_rating(request):
     """
         A view to add rating and reviews
@@ -56,6 +57,7 @@ def add_rating(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_rating(request, rating_id):
     """
         A view to edit rating and reviews
@@ -90,6 +92,7 @@ def edit_rating(request, rating_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_rating(request, rating_id):
     """
         A view for delete rating and review
