@@ -13,7 +13,7 @@ class ProductAdmin(admin.ModelAdmin):
     )
 
     ordering = ['name',]
-    search_fields = ['name', 'Category', 'price']
+    search_fields = ['name', 'category', 'price']
 
 
 class CategoryAdmin(admin.ModelAdmin):
