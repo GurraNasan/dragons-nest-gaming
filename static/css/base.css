@@ -82,6 +82,8 @@ body {
     max-width: 100%;
 }
 
+/* Buttons */
+
 .start-shop-btn {
     background: #000;
     color: #f29100;
@@ -126,10 +128,23 @@ body {
     right: 25px;
 }
 
+.back-to-top-link,
+.update-item,
+.remove-item {
+    cursor: pointer;
+}
+
+.btn-outline-danger:hover {
+    color: white;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
 .quantity-input {
     padding: 6px 0px 6px 6px;
 }
 
+/* product tags */
 .sub-tag {
     position: absolute;
     top: 0;
@@ -140,11 +155,7 @@ body {
     font-size: larger;
 }
 
-.back-to-top-link,
-.update-item,
-.remove-item {
-    cursor: pointer;
-}
+
 
 /* toast */
 
@@ -240,11 +251,39 @@ body {
     border-color: #f29100;
 }
 
-.btn-outline-danger:hover {
-    color: white;
-    background-color: #dc3545;
-    border-color: #dc3545;
+/* calender */
+
+.calender {
+    width: 98%;
+    margin: auto;
+    font-size: 13px;
 }
+
+.calender tr, .calender td {
+    border: 3px solid #000;
+}
+
+.calender th {
+    padding: 5px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.calender td {
+    width: 100px;
+    height: 75px;
+    padding: 10px 0px 0px 5px;
+}
+
+.month {
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.date {
+    font-size: 10px;
+}
+
 
 
 /* -------------------------------- Media Queries */
