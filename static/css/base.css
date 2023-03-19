@@ -130,6 +130,11 @@ body {
     width: 50px;
     bottom: 25px;
     right: 25px;
+    border-radius: 50%;
+}
+
+.back-to-top-btn a {
+    border-radius: 50%;
 }
 
 .back-to-top-link,
@@ -297,6 +302,10 @@ body {
 
 /* Footer */
 
+footer {
+    font-size: 15px;
+}
+
 .logo-img {
     width: 100px;
     height : 100px;
@@ -308,6 +317,10 @@ body {
     font-size: 25px;
     color: #000;
     margin-left: 25px;
+}
+
+.footer-heading {
+    font-size: 20px;
 }
 
 
