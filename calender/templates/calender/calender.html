@@ -20,7 +20,7 @@
                 {{ calendar }}
         </div>
         {% if request.user.is_superuser %}
-            <a href="{% url 'calender:add_event' %}" class="btn btn-success">Add event</a>
+                <a href="{% url 'calender:add_event' %}" class="btn btn-success ">Add event</a>
         {% endif %}
     </div>
 {% endblock %}
