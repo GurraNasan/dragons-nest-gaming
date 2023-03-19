@@ -7,6 +7,7 @@ class Event(models.Model):
         A model for the events to the calaneder
     """
     title = models.CharField(max_length=200, null=False, blank=False)
+    event_image = models.ImageField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()

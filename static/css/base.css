@@ -285,7 +285,11 @@ body {
     font-size: 10px;
 }
 
-
+.event {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
 
 /* -------------------------------- Media Queries */
 
