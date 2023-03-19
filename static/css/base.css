@@ -306,6 +306,13 @@ footer {
     font-size: 15px;
 }
 
+.footer-container {
+    min-height:25vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between
+}
+
 .logo-img {
     width: 100px;
     height : 100px;
