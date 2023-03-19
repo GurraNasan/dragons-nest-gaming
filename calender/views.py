@@ -60,6 +60,16 @@ def get_date(req_day):
     return datetime.today()
 
 
+def event_info(request, event_id):
+    event = get_object_or_404(Event, pk=event_id)
+
+    context = {
+        'event': event,
+    }
+
+    return render(request, 'calender/event_info.html', context)
+
+
 def event(request, event_id=None):
 
     if not request.user.is_superuser:
@@ -75,18 +85,14 @@ def event(request, event_id=None):
     form = EventForm(request.POST or None, instance=instance)
     if request.POST and form.is_valid():
         form.save()
+        messages.info(request, 'Event updated successfull')
         return HttpResponseRedirect(reverse('calender:calendar'))
-    return render(request, 'calender/event.html', {'form': form})
-
-
-def event_info(request, event_id):
-    event = get_object_or_404(Event, pk=event_id)
 
     context = {
-        'event': event,
+        'form': form,
+        'on_event_page': True
     }
-
-    return render(request, 'calender/event_info.html', context)
+    return render(request, 'calender/event.html', context)
 
 
 @login_required
@@ -101,6 +107,6 @@ def delete_event(request, event_id):
 
     event = get_object_or_404(Event, pk=event_id)
     event.delete()
-    messages.success(request, f'Event {event.title} \
+    messages.info(request, f'Event {event.title} \
         has been deleted!')
     return redirect(reverse('calender:calendar'))

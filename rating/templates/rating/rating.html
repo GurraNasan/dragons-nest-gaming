@@ -75,12 +75,21 @@
             {% else %}
                 <p>You have no ratings or reviews</p>
             {% endif%}
-            <a href="{% url 'profile' %}" class="btn back-store-btn rounden-2 mb-2">
-                <span class="icon">
-                    <i class="fa-solid fa-hand-point-left"></i>
-                </span>
-                <span class="text-uppercase">Back to profile</span>
-            </a>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <a href="{% url 'profile' %}" class="btn back-store-btn rounded-2 float-left">
+                    <span class="icon">
+                        <i class="fa-solid fa-hand-point-left"></i>
+                    </span>
+                    <span class="text-uppercase">Back to profile</span>
+                </a>
+                <a href="{% url 'add_rating' %}" class="btn btn add-cart-btn float-left">
+                    <span class="mr-2"><i class="fa-solid fa-star"></i></span>
+                    <span>Add Review</span>
+                </a>
             </div>
         </div>
     </div>

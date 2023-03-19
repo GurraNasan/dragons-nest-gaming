@@ -28,6 +28,7 @@ def rating(request):
 
     return render(request, template, context)
 
+
 @login_required
 def add_rating(request):
     """
@@ -52,6 +53,7 @@ def add_rating(request):
     template = 'rating/add_rating.html'
     context = {
         'form': form,
+        'on_rating_page': True
     }
 
     return render(request, template, context)
@@ -87,6 +89,7 @@ def edit_rating(request, rating_id):
     context = {
         'form': form,
         'rating': rating,
+        'on_rating_page': True
     }
 
     return render(request, template, context)

@@ -40,17 +40,6 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a href="#" class="logo-font font-weight-bold nav-link text-black" id="merch-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Merchandise
-            </a>
-            <div class="dropdown-menu shadow">
-                <a href="{% url 'products' %}?category=apparel" class="dropdown-item">Apparel</a>
-                <a href="{% url 'products' %}?category=other_merch" class="dropdown-item">Other</a>
-                <a href="{% url 'products' %}?category=apparel,other_merch" class="dropdown-item">All Merchandise</a>
-            </div>
-        </li>
-
-        <li class="nav-item dropdown">
             <a href="#" class="logo-font font-weight-bold nav-link text-black" id="accessories-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                  Game Accessories
             </a>
@@ -60,6 +49,17 @@
                 <a href="{% url 'products' %}?category=sleeves" class="dropdown-item">Sleeves</a>
                 <a href="{% url 'products' %}?category=deckboxes_and_binders" class="dropdown-item">Deckboxes and Binders</a>
                 <a href="{% url 'products' %}?category=dice,paint:_and_brushes,sleeves,deckboxes_and_binders" class="dropdown-item">Game Accessories</a>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a href="#" class="logo-font font-weight-bold nav-link text-black" id="merch-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Merchandise
+            </a>
+            <div class="dropdown-menu shadow">
+                <a href="{% url 'products' %}?category=apparel" class="dropdown-item">Apparel</a>
+                <a href="{% url 'products' %}?category=other_merch" class="dropdown-item">Other</a>
+                <a href="{% url 'products' %}?category=apparel,other_merch" class="dropdown-item">All Merchandise</a>
             </div>
         </li>
 

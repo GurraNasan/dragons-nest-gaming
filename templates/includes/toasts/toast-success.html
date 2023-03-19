@@ -17,41 +17,43 @@
             </div>
         </div>
         {% if grand_total and not on_profile_page %}
-            <p class="logo-font py-1">Your Cart {{ product_count }}</p>
-            {% for item in cart_items %}
+            {% if not on_rating_page %}
+                <p class="logo-font py-1">Your Cart {{ product_count }}</p>
+                {% for item in cart_items %}
+                    <div class="row">
+                        <div class="col-3 my-1">
+                            {% if item.product.image %}
+                                <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid">
+                            {% else %}
+                                <img src="{{ MEDIA_URL }}no_image.png" alt="{{ item.product.name }}" class="img-fluid">
+                            {% endif %}
+                        </div>
+                        <div class="col-9">
+                            <p class="my-0">{{ item.product.name }}</p>
+                            <p class="my-0 small">QTY: {{ item.quantity }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
                 <div class="row">
-                    <div class="col-3 my-1">
-                        {% if item.product.image %}
-                            <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid">
-                        {% else %}
-                            <img src="{{ MEDIA_URL }}no_image.png" alt="{{ item.product.name }}" class="img-fluid">
+                    <div class="col">
+                        <strong>
+                            <p>
+                                Total {% if free_delivery_delta > 0 %}(Exc. Delivery){% endif %}:
+                                <span class="float-right">${{ total|floatformat:2 }}</span>
+                            </p>
+                        </strong>
+                        {% if free_delivery_delta > 0 %}
+                            <p class="mb-0 p-2 shadow-sm text-center">
+                                Spend <strong>${{ free_delivery_delta }}</strong> more to get free delivery!
+                            </p>
                         {% endif %}
-                    </div>
-                    <div class="col-9">
-                        <p class="my-0">{{ item.product.name }}</p>
-                        <p class="my-0 small">QTY: {{ item.quantity }}</p>
+                        <a href="{% url 'view_cart' %}" class="btn btn-orange btn-block">
+                            <i class="fa-solid fa-cart-shopping fa-lg"></i>
+                            <span>Take a look in your cart</span>
+                        </a>
                     </div>
                 </div>
-            {% endfor %}
-            <div class="row">
-                <div class="col">
-                    <strong>
-                        <p>
-                            Total {% if free_delivery_delta > 0 %}(Exc. Delivery){% endif %}:
-                            <span class="float-right">${{ total|floatformat:2 }}</span>
-                        </p>
-                    </strong>
-                    {% if free_delivery_delta > 0 %}
-                        <p class="mb-0 p-2 shadow-sm text-center">
-                            Spend <strong>${{ free_delivery_delta }}</strong> more to get free delivery!
-                        </p>
-                    {% endif %}
-                    <a href="{% url 'view_cart' %}" class="btn btn-orange btn-block">
-                        <i class="fa-solid fa-cart-shopping fa-lg"></i>
-                        <span>Take a look in your cart</span>
-                    </a>
-                </div>
-            </div>
+            {% endif %}  
         {% endif %}
     </div>
 </div>
