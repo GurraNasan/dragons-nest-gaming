@@ -83,11 +83,11 @@
                                 <div class="row">
                                     <div class="col-6 text-left">
                                         <p class="lead mb-0 mt-2 text-left text-left">${{ product.price }}</p>
-                                        {% if product.rating %}
-                                            <small><i class="fas fa-star mr-1"></i>{{ product.rating }}</small>
-                                        {% else %}
-                                            <small><i class="fas fa-star mr-1"></i> No rating</small>
-                                        {% endif %}
+                                        {% for average_rating in average_ratings %}            
+                                            {% if average_rating.product == product.name %}
+                                                <small><i class="fas fa-star mr-1"></i>{{ average_rating.rating }}</small>
+                                            {% endif %}
+                                        {% endfor %}
                                     </div>
                                     <div class="col-6 text-right">
                                         {% if product.in_stock %}

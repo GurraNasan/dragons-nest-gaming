@@ -7,12 +7,17 @@ from django.db.models.functions import Lower
 from .models import Product, Category, SubCategory
 from .forms import ProductForm
 from rating.models import Rating
-from .utils import get_product_rating, get_averge_rating
+from .utils import (
+    get_product_rating,
+    get_average_rating,
+    get_average_rating_list,
+)
 
 
 def products_list(request):
     """
-        A view for all products and functionality for search and filtering by categories.
+        A view for all products and functionality
+        for search and filtering by categories.
         insperied by Boutique Ado project in Code institute course
     """
     products = Product.objects.all()
@@ -21,6 +26,8 @@ def products_list(request):
     subcategories = None
     sort = None
     direction = None
+
+    average_ratings = get_average_rating_list(products)
 
     if request.GET:
         """ Code for sorting """
@@ -71,6 +78,7 @@ def products_list(request):
         'current_sorting': current_sorting,
         'current_categories': categories,
         'current_subcategories': subcategories,
+        'average_ratings': average_ratings,
     }
 
     return render(request, 'products/products.html', context)
@@ -82,7 +90,7 @@ def product_info(request, product_id):
     """
     product = get_object_or_404(Product, pk=product_id)
     ratings = get_product_rating(product_id)
-    average_rating = get_averge_rating(product_id)
+    average_rating = get_average_rating(product_id)
 
     context = {
         'product': product,
