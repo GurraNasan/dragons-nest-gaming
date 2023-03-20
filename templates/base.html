@@ -7,7 +7,10 @@
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta name="keywords" content="magic the gathering, board game, pokemon">
+      <meta name="keywords" content="magic the gathering, board game, pokemon, Norway, gamesworkshop, game webstore">
+      <meta name="description" content="Game and card webshop in norway">
+      <meta name="author" content="Gustav Näslund">
+
     {% endblock  %}
 
     {% block favicon %}
@@ -95,9 +98,9 @@
                     </div>
                     <p class="my-0">
                         {% if grand_total %}
-                            ${{ grand_total|floatformat:2 }}
+                            {{ grand_total|floatformat:2 }}NOK
                         {% else %}
-                            $0.00
+                            0.00NOK
                         {% endif %}
                     </p>
                 </div>

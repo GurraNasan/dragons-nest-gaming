@@ -38,7 +38,7 @@
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="product-details-container">
                     <p><h2>{{ product.name }}</h2></p>
-                    <p class="lead text-left font-weight-bold mb-1">Price: ${{ product.price }}</p>
+                    <p class="lead text-left font-weight-bold mb-1">Price: {{ product.price }}NOK</p>
                     {% if product.in_stock %}
                         {% if product.available >= 5 %}
                             <p class="small">

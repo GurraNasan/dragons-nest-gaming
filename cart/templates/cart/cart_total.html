@@ -1,8 +1,8 @@
-<h6><strong>Cart Total: ${{ total|floatformat:2 }}</strong></h6>
-<h6>Delivery: ${{ delivery|floatformat:2 }}</h6>
-<h4><strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong></h4>
+<h6><strong>Cart Total: {{ total|floatformat:2 }}NOK</strong></h6>
+<h6>Delivery: {{ delivery|floatformat:2 }}NOK</h6>
+<h4><strong>Grand Total: {{ grand_total|floatformat:2 }}NOK</strong></h4>
 {% if free_delivery_delta > 0 %}
     <p class="text-danger">
-        If you spend ${{ free_delivery_delta }} more, you get free delivery
+        If you spend {{ free_delivery_delta }}NOK more, you get free delivery
     </p>
 {% endif %}

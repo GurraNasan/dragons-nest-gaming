@@ -6,8 +6,8 @@ Your order inforamtion is below:
 Order Number: {{ order.order_number }}
 Order Date: {{ order.data }}
 
-Order Total: ${{ order.order_total }}
-Delivery: ${{ order.delivery_cost }}
+Order Total: {{ order.order_total }}NOK
+Delivery: {{ order.delivery_cost }}NOK
 Grand Total: {{ order.grand_total }}
 
 Your order will be delivered to:
