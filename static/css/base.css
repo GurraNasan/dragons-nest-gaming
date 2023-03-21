@@ -330,12 +330,12 @@ footer {
     font-size: 20px;
 }
 
-.address-link {
+.footer-link {
     color: #000;
     font-size: 15px;
 }
 
-.address-link:hover {
+.footer-link:hover {
     text-decoration: none;
     color: #000;
 }
