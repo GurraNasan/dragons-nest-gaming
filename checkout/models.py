@@ -80,7 +80,7 @@ class Order(models.Model):
     grand_total = models.DecimalField(
         max_digits=10,
         decimal_places=2,
-        null=False, 
+        null=False,
         default=0
     )
     original_cart = models.TextField(

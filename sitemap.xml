@@ -93,12 +93,12 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://dngshop.herokuapp.com/products/?category=dice,paint:_and_brushes</loc>
+  <loc>https://dngshop.herokuapp.com/products/?category=dice,paint_and_brushes</loc>
   <lastmod>2023-03-20T15:00:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://dngshop.herokuapp.com/products/?category=warhammer_40k,%20warhammer_age_of_sigmar,dice,paint:_and_brushes</loc>
+  <loc>https://dngshop.herokuapp.com/products/?category=warhammer_40k,%20warhammer_age_of_sigmar,dice,paint_and_brushes</loc>
   <lastmod>2023-03-20T15:00:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -108,7 +108,7 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://dngshop.herokuapp.com/products/?category=paint:_and_brushes</loc>
+  <loc>https://dngshop.herokuapp.com/products/?category=paint_and_brushes</loc>
   <lastmod>2023-03-20T15:00:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -123,7 +123,7 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://dngshop.herokuapp.com/products/?category=dice,paint:_and_brushes,sleeves,deckboxes_and_binders</loc>
+  <loc>https://dngshop.herokuapp.com/products/?category=dice,paint_and_brushes,sleeves,deckboxes_and_binders</loc>
   <lastmod>2023-03-20T15:00:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>

@@ -48,7 +48,7 @@ card.addEventListener('change', function (event) {
 });
 
 // Handle form submit
-var form = document.getElementById('payment-form')
+var form = document.getElementById('payment-form');
 
 form.addEventListener('submit', function(ev) {
     ev.preventDefault();
@@ -63,7 +63,7 @@ form.addEventListener('submit', function(ev) {
         'csrfmiddlewaretoken': csrfToken,
         'client_secret': clientSecret,
         'save_info':saveInfo,
-    }
+    };
     var url = '/checkout/cache_checkout_data/';
 
     $.post(url, postData).done(function () {
@@ -100,7 +100,8 @@ form.addEventListener('submit', function(ev) {
                     <span class="icon" role="alert">
                     <i class="fas fa-times"></i>
                     </span>
-                    <span>${result.error.message}</span>`;
+                    <span>${event.error.message}</span>
+                `;
                 $(errorDiv).html(html);
                 $('#payment-form').fadeToggle(100);
                 $('#loading-overlay').fadeToggle(100);

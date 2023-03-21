@@ -5,7 +5,7 @@ from .models import Event
 class EventForm(ModelForm):
     class Meta:
         model = Event
-        widgets = { 
+        widgets = {
             'start_time': DateTimeInput(
                 attrs={
                     'type': 'datetime-local',

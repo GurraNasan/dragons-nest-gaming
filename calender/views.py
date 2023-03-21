@@ -82,7 +82,9 @@ def event(request, event_id=None):
     else:
         instance = Event()
 
-    form = EventForm(request.POST or None, files=request.FILES or None, instance=instance)
+    form = EventForm(
+        request.POST or None, files=request.FILES or None, instance=instance
+    )
     if request.POST and form.is_valid():
         form.save()
         messages.info(request, 'Event updated successfull')

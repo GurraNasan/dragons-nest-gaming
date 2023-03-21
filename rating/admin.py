@@ -5,7 +5,7 @@ from .models import Rating
 
 class RatingAdmin(admin.ModelAdmin):
 
-    list_display = ( 
+    list_display = (
         'product',
         'user_profile',
         'rating',
