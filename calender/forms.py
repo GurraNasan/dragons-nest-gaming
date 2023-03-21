@@ -10,13 +10,13 @@ class EventForm(ModelForm):
                 attrs={
                     'type': 'datetime-local',
                     },
-                format='%Y-%m-%dT%-H:%M'
+                format=('%Y-%m-%dT%-H:%M')
             ),
-            'end_time': DateTimeInput(
+            'end_time': DateTimeInput( 
+                format='%Y-%m-%dT%-H:%M',
                 attrs={
                     'type': 'datetime-local',
                     },
-                format='%Y-%m-%dT%-H:%M'
             ),
         }
         fields = '__all__'

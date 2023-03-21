@@ -25,12 +25,12 @@ class StripeWH_Handler:
         cust_email = order.email
         subject = render_to_string(
             'checkout/confirmation_emails/confirmation_email_subject.txt',
-            {'order': order}
-        )
+            {'order': order})
         body = render_to_string(
             'checkout/confirmation_emails/confirmation_email_body.txt',
             {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL}
         )
+
         send_mail(
             subject,
             body,
@@ -70,7 +70,7 @@ class StripeWH_Handler:
         # Update profile if save_info checked
         profile = None
         username = intent.metadata.username
-        if username != 'anonymousUser':
+        if username != 'AnonymousUser':
             profile = UserProfile.objects.get(user__username=username)
             if save_info:
                 profile.default_full_name = shipping_details.name
@@ -103,7 +103,6 @@ class StripeWH_Handler:
                 )
                 order_exists = True
                 break
-
             except Order.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
