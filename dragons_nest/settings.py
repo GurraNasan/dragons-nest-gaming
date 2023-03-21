@@ -210,11 +210,11 @@ if 'USE_AWS' in os.environ:
 
 # stripe
 FREE_DELIVERY_THRESHOLD = 500
-STANDARD_DELIVERY_PRECENTAGE = 50
+STANDARD_DELIVERY_PRECENTAGE = 20
 STRIPE_CURRENCY = 'nok'
-STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')
-STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')
-STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET', '')
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
+STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 
 if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
