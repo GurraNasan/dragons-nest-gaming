@@ -100,6 +100,113 @@ I used icons from Font Awsome extensivley on the website. They are used within t
 
 #### Wireframes
 
+When I started the project I made up some wire frames to the core structure for the page. 
 
+![index_wireframe](readme/img/index_wireframe.jpg)
+
+This is for the Homepage/Index page I wanted it to be slim with not that much text. But easy nav menu so the user could find what they wanted fast. I also draw up 
+an idea for the footer. But as you can see i did some changes,i moved down the nav menu abit and rearranged the footer. But the original content is there. 
+
+
+![product_wireframe](readme/img/products_wirefram.jpg)
+
+This was my idea for the product page, where you could see and filter the products. I change so there was only 3 products in a row. I also added a in stuck icon so the user could see if there was in stock.
+
+
+![product_details_wireframes](readme/img/product_details_wireframes.jpg)
+
+For the product details page i moved around the content to, I felt there was better to have the put in bvag button over the description so it would be easyer to press
+if the description was long. I also added a average rating so user could now what other thinhgs and a carousel for reviews if there is any. 
+
+
+![cart_wireframe](readme/img/cart_wireframe.jpg)
+
+The final cart page looks like the origninal idea. 
   
+### Agile Method 
 
+#### User Stories
+  Before I started to code a took a meeting with my brothers to tall about what they wanted on the site and we put up some user-stories and prioritized using MoSCoW. This is the user stories:
+  + [USER STORY: Manage products](https://github.com/GurraNasan/dragons-nest-gaming/issues/1)
+    [USER STORY: Event handling](https://github.com/GurraNasan/dragons-nest-gaming/issues/2)
+    [USER STORY: Send newsletter](https://github.com/GurraNasan/dragons-nest-gaming/issues/3)
+    [USER STORY: Moderate ratings](https://github.com/GurraNasan/dragons-nest-gaming/issues/4)
+    [USER STORY: See products](https://github.com/GurraNasan/dragons-nest-gaming/issues/5)
+    [USER STORY: Product details](https://github.com/GurraNasan/dragons-nest-gaming/issues/6)
+    [USER STORY: Find offers](https://github.com/GurraNasan/dragons-nest-gaming/issues/7)
+    [USER STORY: See new products](https://github.com/GurraNasan/dragons-nest-gaming/issues/8)
+    [USER STORY: Cart total](https://github.com/GurraNasan/dragons-nest-gaming/issues/9)
+    [USER STORY: Search product](https://github.com/GurraNasan/dragons-nest-gaming/issues/10)
+    [USER STORY: Shopping cart](https://github.com/GurraNasan/dragons-nest-gaming/issues/11)
+    [USER STORY: See event calendar](https://github.com/GurraNasan/dragons-nest-gaming/issues/12)
+    [USER STORY: Register user](https://github.com/GurraNasan/dragons-nest-gaming/issues/13)
+    [USER STORY: Recover password](https://github.com/GurraNasan/dragons-nest-gaming/issues/14)
+    [USER STORY: View user profile](https://github.com/GurraNasan/dragons-nest-gaming/issues/15)
+    [USER STORY: Log in/out](https://github.com/GurraNasan/dragons-nest-gaming/issues/16)
+    [USER STORY: Rate product](https://github.com/GurraNasan/dragons-nest-gaming/issues/17)
+    [USER STORY: Sign up newsletter](https://github.com/GurraNasan/dragons-nest-gaming/issues/18)
+    [USER STORY: View cart](https://github.com/GurraNasan/dragons-nest-gaming/issues/19)
+    [USER STORY: Cart quantity](https://github.com/GurraNasan/dragons-nest-gaming/issues/20)
+    [USER STORY: Payment information](https://github.com/GurraNasan/dragons-nest-gaming/issues/21)
+    [USER STORY: Order confirmation](https://github.com/GurraNasan/dragons-nest-gaming/issues/21)
+    [USER STORY: Confirmation email](https://github.com/GurraNasan/dragons-nest-gaming/issues/21)
+    [USER STORY: One product in many categories](https://github.com/GurraNasan/dragons-nest-gaming/issues/21)
+    
+      + [Data modal](#data-modal)
+      + [Future Features](#future-features)
++ [Margeting](#margeting)
++ [Page Features](#page-features)
+   + [nav bar](#nav-bar)
+   + [Index](#index-page)
+   + [Shop](#shop)
+      + [Products](#products)
+      + [Cart](#cart)
+      + [Checkout](#checkout)
+      + [Confirmation](#confirmation)  
+   + [Event](#forum)
+      + [Calendar](#calendar)
+      + [Event detail](#event-details)
+   + [Profile](#profile)
+      + [My profile](#my-profile)
+      + [Add Review](#add-review)  
+   + [Admin](#radmin)
+      + [Manage products](#manage-products)
+      + [Manage event](#Manage-event)
+   
++ [Technologies](#Technologies)
+   + [Programming Languages](#programming-languages)
+   + [Support Programs & libraries](#support-programs-libraries)
+
++ [Testing](#Testing)
+    + [Bugs](#bugs)
+    + [ManuelTesting](#manuel-testing)
+    + [NavigationHeader](#navigation-header)
+    + [PageManualTesting](#home-page-maual-testing)
+    + [Index page](#testing-index-page)
+    + [SignInManualTesting](#sign-in-manual-testing)
+    + [Shop](#teseting-forum)  
+        + [Products](#category-page-testing)
+        + [Cart](#cart-testing)
+        + [Checkout](#checkout-testing)
+        + [Confirmation](#confirmation-testing) 
+    + [Calender](#teseting-forum)  
+        + [Calender](#calender-testing)
+        + [add/edit event](#add/edit-testingt)
+    + [Profile](#profile-testing)  
+        + [profile info](#profile-info-testing)
+        + [add/edit rating](#add/edit-rating)             
+    + [Validation](#Validation)
+        + [HTML](#html)
+        + [CSS](#css)
+        + [Python](#python)
+        + [Javascrip](#javascript)
+        + [Lighthouse](#lighthouse)
+   
++ [Deployment](#deployment)
+   + [Github](#github)
+   + [Gitpod and Django](#gitpod-and-django)
+   + [Heroku](#heroku)   
+   
++ [Acknowledgments](#acknowledgments)
+    + [Credits](#credits)
+    + [Copied Code](#copied-code)
