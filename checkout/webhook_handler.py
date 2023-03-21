@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
+from django.conf import settings
 
 from .models import Order, OrderLineItem
 from products.models import Product
@@ -20,7 +21,7 @@ class StripeWH_Handler:
         """
         Send user confirmation email
         """
-        cust_eamil = order.email
+        cust_email = order.email
         subject = render_to_string(
             'checkout/confirmation_emails/confirmation_email_subject.txt',
             {'order': order}
@@ -29,7 +30,12 @@ class StripeWH_Handler:
             'checkout/confirmation_emails/confirmation_email_body.txt',
             {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL}
         )
-        send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [cust_email])
+        send_mail(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [cust_email]
+        )
 
     def handle_event(self, event):
         """
@@ -63,7 +69,7 @@ class StripeWH_Handler:
         # Update profile if save_info checked
         profile = None
         username = intent.metadata.username
-        if username != 'AnonymousUser':
+        if username != 'anonymousUser':
             profile = UserProfile.objects.get(user__username=username)
             if save_info:
                 profile.default_full_name = shipping_details.name
@@ -96,6 +102,7 @@ class StripeWH_Handler:
                 )
                 order_exists = True
                 break
+
             except Order.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
@@ -120,7 +127,7 @@ class StripeWH_Handler:
                     city=shipping_details.address.city,
                     country=shipping_details.address.country,
                     original_cart=cart,
-                    stripe_pid=pid
+                    stripe_pid=pid,
                 )
                 for item_id, item_data in json.loads(cart).items():
                     product = Product.objects.get(id=item_id)
@@ -151,6 +158,6 @@ class StripeWH_Handler:
         Handle the payment_intent.failed webhook from Stripe
         """
         return HttpResponse(
-            content=f'Webhook received: {event["type"]}',
+            content=f'FAILED. Webhook received: {event["type"]}',
             status=200
         )
