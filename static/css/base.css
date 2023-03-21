@@ -340,13 +340,16 @@ footer {
     color: #000;
 }
 
+.news-div {
+    display:flex;
+}
+
 /* Mailchimp */
 #mc_embed_signup {
     background: rgba(245, 145, 0, 1);
     clear: left;
     width: 400px;
-    
-    
+     
 }
 
 
