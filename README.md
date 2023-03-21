@@ -16,14 +16,17 @@ sold Magic the Gathering cards on auction sites. All went well and they saw the 
   - Authentication: User can create a account to save shipping details and leave reviews.
   - Event Calendar: A calender for the users to see if there are any Events going on in the store.
 
-# Contents
+## Contents
 
 + [User Experience(UX)](#user-experience-ux)
-  + [Agile Method](#agile-method)
+     + [Color Scheme](#color-scheme)
+     + [Icons](#icons)
+     + [Wireframes](#wireframe)
+ + [Agile Method](#agile-method)
       + [User Stories](#user-stories "User Stories")
       + [Data modal](#data-modal)
       + [Future Features](#future-features)
-      
++ [Margeting](#margeting)
 + [Page Features](#page-features)
    + [nav bar](#nav-bar)
    + [Index](#index-page)
@@ -79,3 +82,24 @@ sold Magic the Gathering cards on auction sites. All went well and they saw the 
 + [Acknowledgments](#acknowledgments)
     + [Credits](#credits)
     + [Copied Code](#copied-code)
+
+### User Experience UX
+  
+  The plan for the site was to build a slim site that was easy for users to use and find what thay want. I also wanted to build a event calendar for the users that live close to the store so they could meet up. 
+  The font name for the page is: K2D a slim but easy to read. 
+  
+#### Color Scheme
+
+I choose to use limited color scheme of Orange #f29100, Black and White. I got the Orange color from the logo 
+so it feels like everyting fits in. And with Black and white it is easy to make contrast. 
+
+In some placees i used Green for succes/Add, Red for warning/delete to get a more user friendly experience.
+
+#### Icons
+I used icons from Font Awsome extensivley on the website. They are used within the nav bar to reduce the need for verbose descriptions such as 'search. I have used them on buttons to reinforce the action of the button.
+
+#### Wireframes
+
+
+  
+
