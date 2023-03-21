@@ -24,11 +24,11 @@
                         {% endif %}
                     {% endfor %}
                     <div class="text-center">
-                        <a href="{% url 'products' %}" class="btn back-store-btn my-2">
+                        <a href="{% url 'products' %}" class="btn back-store-btn my-2"  aria-label="cancel">
                             <span><i class="fa-solid fa-xmark"></i></span>
                             <span>Cancel</span>
                         </a>
-                        <button class="btn btn-outline-success my-2" type="submit">
+                        <button class="btn btn-outline-success my-2" type="submit"  aria-label="edit product">
                             <span><i class="fa-solid fa-plus"></i></span>
                             <span>Edit Product</span>
                         </button>

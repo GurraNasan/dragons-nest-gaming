@@ -29,7 +29,7 @@
     <div class="row">
         <div class="col-12 d-lg-none">
             <button class="btn add-cart-btn my-2 text-uppercase" data-toggle="collapse" data-target="#cart-summary"
-                aria-expanded="false" aria-controls="collapse">
+                aria-expanded="false" aria-controls="collapse"  aria-label="your cart summary">
                 Your cart summary
             </button>
             <div class="collapse" id="cart-summary">
@@ -78,11 +78,11 @@
                 </fieldset>
 
                 <div class="submit-button text-right mt-5 mb-2">
-                    <a href="{% url 'view_cart' %}" class="btn back-store-btn my-2">
+                    <a href="{% url 'view_cart' %}" class="btn back-store-btn my-2"  aria-label="back to cart">
                         <span class="mr-2"><i class="fa-solid fa-hand-point-left"></i></span>
                         <span>Back to cart</span>
                     </a>
-                    <button class="btn add-cart-btn my-2" id="submit-button">
+                    <button class="btn add-cart-btn my-2" id="submit-button"  aria-label="Complet order">
                         <span>Complete Order</span>
                         <span class="mr-2"><i class="fa-solid fa-credit-card"></i></span>
                     </button>

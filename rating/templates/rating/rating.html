@@ -42,7 +42,7 @@
                                 <p>Writen by: {{ rating.user_profile}}</p>
                             </div>
                             <a href="{% url 'edit_rating' rating.id %}" class="btn btn-success">Edit Review</a>
-                            <button type="button" data-toggle="modal" data-target="#deleteModal-{{ rating.id }}" class="btn btn-danger">
+                            <button type="button" data-toggle="modal" data-target="#deleteModal-{{ rating.id }}" class="btn btn-danger"  aria-label="delete-review">
                                 Delete Review
                             </button>
                             </div>
@@ -60,11 +60,11 @@
                                             <p>This is permanent and can not be undone!</p>
                                         </div>
                                         <div class="modal-footer">
-                                            <a href="{% url 'delete_rating' rating.id %}" class="btn btn-outline-danger my-2">
+                                            <a href="{% url 'delete_rating' rating.id %}" class="btn btn-outline-danger my-2"  aria-label="delete product">
                                                 <span class="mr-2"><i class="fa-solid fa-trash-can"></i></span>
                                                 <span>Delete Product</span>
                                             </a>
-                                            <button type="button" class="btn back-store-btn" data-dismiss="modal">Cancel</button>
+                                            <button type="button" class="btn back-store-btn" data-dismiss="modal"  aria-label="cancel">Cancel</button>
                                         </div>
                                     </div>
                                 </div>

@@ -29,11 +29,11 @@
                 <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
                     {% csrf_token %}
                     {{ form|crispy }}
-                    <a href="{% url 'rating' %}" class="btn btn add-cart-btn float-left">
+                    <a href="{% url 'rating' %}" class="btn btn add-cart-btn float-left"  aria-label="my reviews">
                         <span class="mr-2"><i class="fa-solid fa-star"></i></span>
                         <span>My reviews</span>
                     </a>
-                    <button class="btn btn add-cart-btn float-right">
+                    <button class="btn btn add-cart-btn float-right"  aria-label="Update information">
                         <span class="mr-2"><i class="fa-solid fa-user-pen"></i></span>
                         <span>Update Information</span>
                     </button>
