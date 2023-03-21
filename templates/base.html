@@ -98,9 +98,9 @@
                     </div>
                     <p class="my-0">
                         {% if grand_total %}
-                            {{ grand_total|floatformat:2 }}NOK
+                            {{ grand_total|floatformat:2 }} NOK
                         {% else %}
-                            0.00NOK
+                            0.00 NOK
                         {% endif %}
                     </p>
                 </div>
@@ -152,6 +152,7 @@
     {% endblock %}
 
     {% block content %}
+    
     {% endblock %}
 
     {% block footer %}

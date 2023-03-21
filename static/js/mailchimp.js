@@ -1,4 +1,3 @@
-< script type = 'text/javascript' >
     (function ($) {
         window.fnames = new Array();
         window.ftypes = new Array();
@@ -17,4 +16,3 @@
         }(jQuery)
     );
     var $mcj = jQuery.noConflict(true); 
-</script>

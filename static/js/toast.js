@@ -1,1 +1,1 @@
-$('.toast').toast('show');
+    $('.toast').toast('show');

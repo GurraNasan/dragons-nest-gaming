@@ -330,6 +330,15 @@ footer {
     font-size: 20px;
 }
 
+.address-link {
+    color: #000;
+    font-size: 15px;
+}
+
+.address-link:hover {
+    text-decoration: none;
+    color: #000;
+}
 
 /* Mailchimp */
 #mc_embed_signup {
