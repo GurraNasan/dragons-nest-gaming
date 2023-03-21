@@ -27,6 +27,10 @@ sold Magic the Gathering cards on auction sites. All went well and they saw the 
       + [Data modal](#data-modal)
       + [Future Features](#future-features)
 + [Margeting](#margeting)
+    + [E-Commerce Application](#E-Commerce-Application)
+    + [Marketing Strategy](#Marketing-Strategy)
+    + [Search Engine Optimization](#search-engine-optimization)
+    + [XML Sitemap](#XML-sitemap)
 + [Page Features](#page-features)
    + [nav bar](#nav-bar)
    + [Index](#index-page)
@@ -125,6 +129,9 @@ The final cart page looks like the origninal idea.
   
 ### Agile Method 
 
+I used the github projects as a agile tool to manage the planning and implamentation of functions to the site. 
+[Project Board](https://github.com/users/GurraNasan/projects/6)
+
 #### User Stories
   Before I started to code a took a meeting with my brothers to tall about what they wanted on the site and we put up some user-stories and prioritized using MoSCoW. This is the user stories:
   + [USER STORY: Manage products](https://github.com/GurraNasan/dragons-nest-gaming/issues/1)
@@ -152,27 +159,108 @@ The final cart page looks like the origninal idea.
     [USER STORY: Confirmation email](https://github.com/GurraNasan/dragons-nest-gaming/issues/21)
     [USER STORY: One product in many categories](https://github.com/GurraNasan/dragons-nest-gaming/issues/21)
     
-      + [Data modal](#data-modal)
-      + [Future Features](#future-features)
-+ [Margeting](#margeting)
-+ [Page Features](#page-features)
-   + [nav bar](#nav-bar)
-   + [Index](#index-page)
-   + [Shop](#shop)
-      + [Products](#products)
-      + [Cart](#cart)
-      + [Checkout](#checkout)
-      + [Confirmation](#confirmation)  
-   + [Event](#forum)
-      + [Calendar](#calendar)
-      + [Event detail](#event-details)
-   + [Profile](#profile)
-      + [My profile](#my-profile)
-      + [Add Review](#add-review)  
-   + [Admin](#radmin)
-      + [Manage products](#manage-products)
-      + [Manage event](#Manage-event)
+#### Future Features
+
+I got two user storie left, that I did not have time to implant. The most importent one is that one product can be seen in many categories, this will help them be more exposed on the site. 
+One other big feature is to add a wishlist for the Users. 
+I want to expand the calander function to be a better layout and have abit better style.
+
+
+### Margeting
+
+#### E-Commerce Application
+
+Dragons Nest Gaming is a small business and with a E-commerce Application it can expand to reach more customers. The store is selling directly to consumers and the site is designed to sell quickly. Thats why lots of the functions is focused on the user experience.
+
+#### Marketing Strategy 
+Dragons nest gaming is not that big yet and the marketing budget is limited. But there is some ways to reach out to customers and driv traffic to the site and the store. One is with Facebook, the store is activ with new content everyday and tell the customers what is happening. And then we have had some collaborations with local brands like LERVIG a beer company.
+
+#### XML Sitemap
+Additionally to help the search engines crawl the website, I've added an XML sitemap file to the main root directory. The file was created using the free service through XML-Sitemaps.com. A sitemap is a way of organizing a website, identifying the URLs and the data under each section. Previously, the sitemaps were primarily geared for the users of the website. However, Google's XML format was designed for the search engines, allowing them to find the data faster and more efficiently.
+
+A robots.txt file has also be included in the build to tell the search engine crawlers which URLs the crawler can access on this site. This is used mainly to avoid overloading the site with requests.
+
+![Facebook](readme/img/facebook.jpg)
+Take a look a the [page](https://www.facebook.com/DragonsNestGaming/)
+
+#### Search Engine Optimization
+
+SEO research is the key to get traffic to the site. 
+
+![SEO](readme/img/SEO.jpg) 
+
+I set up a couple of categories and find word to them and the researched the word to meet the compitions for everyone. 
+The words i came up with was: "magic the gathering, board game, pokemon, Norway, gamesworkshop, game webstore wpn-store.
+To improve the search engine ranking I ensured the site carries meta tags for a description and keywords which encapsulate the general content.
+
+
+### Page Features 
+   #### Nav Bar
+   ![Nav_Bar](readme/img/nav_menu_big.jpg)
+   ![Nav_Bar](readme/img/small_nav_bar.jpg)
+   Here you can see the logo and name of the sore, find a search bar, the diffrent product categories, my account and the cart. You can see the value of the cart if you have something in it. 
    
+   #### Index
+   
+   ![Index](readme/img/home.jpg)
+   
+   There is not alot of content here, but there is SEO Keywords in the text and a button to start shopping.
+   
+   #### Shop
+   ##### Products
+   
+   ![products](readme/img/all_product.jpg)
+   
+   Here we can see all the products with price, rating, instock symbol, new/deal tag and name. You can filter after price or name. And    see how many products there is.  
+   
+   ![product_info](readme/img/product_info.jpg)
+   
+   On this page you get the description for the product, name, price, rating and reviews if there is one. You can put the product in your cart or go back to the store. If you are admin you get buttons for delete or Edit the product. 
+   
+   ##### Cart
+   ![carts](readme/img/cart.jpg)
+   
+   Here you can see what you have in you cart and see the total and delivery cost. From here you can go to the checkout.
+   If you want you can change the quantity or remove products from the cart.
+   
+   ##### Checkout
+   
+   ![checkout](readme/img/checkout.jpg)
+   
+   On the check out page you can fill in you shipping address and card credentiel. You can save you info if you are logged in. 
+   
+   ##### Confirmation 
+   
+   ![confirmations](readme/img/confirmations.jpg)
+   
+   Here you can see your order information and the total value. You get a pop up that says it it successfull too.
+   
+   #### Event
+   
+   ##### Calendar 
+   
+   ![calendar](readme/img/calendar.jpg)
+    Here you can see a calendar and events on the diffrent days, You can press the events to get more details. As a admin you can add events. 
+    
+   ##### Event detail
+   ![event](readme/img/event.jpg)
+   Here you can see more details and a picture for the event
+   
+   #### Profile
+   ##### My profile
+   
+   ![profile](readme/img/profile.jpg)
+   
+   On this page you can see you order history, billing information and you can go to your reviews.
+   
+   ##### Review  
+   
+   ![rating](readme/img/rating.jpg)
+   
+   As a site uesr you can rate and give reviewvs to products. 
+   
+   #### Admin
+   ##### Add products
 + [Technologies](#Technologies)
    + [Programming Languages](#programming-languages)
    + [Support Programs & libraries](#support-programs-libraries)
