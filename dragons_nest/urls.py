@@ -18,3 +18,4 @@ urlpatterns = [
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'dragons_nest.views.handler404'
+handler500 = 'dragons_nest.views.handler500'
