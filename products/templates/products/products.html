@@ -80,9 +80,10 @@
                                 <p class="mb-0">{{ product.name }}</p>
                             </div>
                             <div class="card-footer pt-0 bg-orange text-left">
+                                <a href="{% url 'product_info' product.id %}" class="text-black">
                                 <div class="row">
                                     <div class="col-6 text-left">
-                                        <p class="lead mb-0 mt-2 text-left text-left">${{ product.price }}</p>
+                                        <p class="lead mb-0 mt-2 text-left text-left">{{ product.price }} NOK</p>
                                         {% for average_rating in average_ratings %}            
                                             {% if average_rating.product == product.name %}
                                                 <small><i class="fas fa-star mr-1"></i>{{ average_rating.rating }}</small>
@@ -101,6 +102,7 @@
                                         {% endif %}
                                     </div>
                                 </div>
+                                </a>
                             </div>
                         </div>
                     </div>
