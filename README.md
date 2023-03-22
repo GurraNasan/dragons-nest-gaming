@@ -158,7 +158,12 @@ I used the github projects as a agile tool to manage the planning and implamenta
   + [USER STORY: Order confirmation](https://github.com/GurraNasan/dragons-nest-gaming/issues/21)
   + [USER STORY: Confirmation email](https://github.com/GurraNasan/dragons-nest-gaming/issues/21)
   + [USER STORY: One product in many categories](https://github.com/GurraNasan/dragons-nest-gaming/issues/21)
-    
+
+#### Data modal
+![datamodal](readme/img/database_model.jpg)
+This is my data models, I added ratings after a while. 
+
+
 #### Future Features
 
 I got two user storie left, that I did not have time to implant. The most importent one is that one product can be seen in many categories, this will help them be more exposed on the site. 
