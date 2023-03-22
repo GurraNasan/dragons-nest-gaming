@@ -13,7 +13,8 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterModelOptions(
             name='category',
-            options={'verbose_name_plural': 'Categories'},
+            options={
+                'verbose_name_plural': 'Categories'},
         ),
         migrations.RemoveField(
             model_name='product',
@@ -26,11 +27,18 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='subcategory',
             name='friendly_name',
-            field=models.CharField(blank=True, max_length=200, null=True),
+            field=models.CharField(
+                blank=True,
+                max_length=200,
+                null=True),
         ),
         migrations.AlterField(
             model_name='product',
             name='category',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='products.category'),
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                to='products.category'),
         ),
     ]

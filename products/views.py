@@ -64,10 +64,12 @@ def products_list(request):
                 messages.error(
                     request,
                     'I think you forgot to write anything, TRY AGAIN!'
-                    )
+                )
                 return redirect(reverse('products'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(
+                name__icontains=query) | Q(
+                description__icontains=query)
             products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'

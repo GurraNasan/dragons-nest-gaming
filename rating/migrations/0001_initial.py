@@ -18,12 +18,36 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Rating',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('rating', models.IntegerField(validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(5)])),
-                ('review_title', models.CharField(blank=True, max_length=100, null=True)),
-                ('review', models.TextField(blank=True, null=True)),
-                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='p_ratings', to='products.product')),
-                ('user_profile', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='profiles.userprofile')),
+                ('id',
+                 models.BigAutoField(
+                     auto_created=True,
+                     primary_key=True,
+                     serialize=False,
+                     verbose_name='ID')),
+                ('rating',
+                 models.IntegerField(
+                     validators=[
+                         django.core.validators.MinValueValidator(0),
+                         django.core.validators.MaxValueValidator(5)])),
+                ('review_title',
+                 models.CharField(
+                     blank=True,
+                     max_length=100,
+                     null=True)),
+                ('review',
+                 models.TextField(
+                     blank=True,
+                     null=True)),
+                ('product',
+                 models.ForeignKey(
+                     on_delete=django.db.models.deletion.CASCADE,
+                     related_name='p_ratings',
+                     to='products.product')),
+                ('user_profile',
+                 models.ForeignKey(
+                     null=True,
+                     on_delete=django.db.models.deletion.SET_NULL,
+                     to='profiles.userprofile')),
             ],
         ),
     ]

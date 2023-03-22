@@ -10,7 +10,7 @@ class Rating(models.Model):
         UserProfile,
         on_delete=models.SET_NULL,
         null=True,
-        )
+    )
 
     product = models.ForeignKey(
         Product,

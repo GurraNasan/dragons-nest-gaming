@@ -16,7 +16,7 @@ urlpatterns = [
         'edit/<int:rating_id>',
         views.edit_rating,
         name="edit_rating"
-        ),
+    ),
     path(
         'delete/<int:rating_id>',
         views.delete_rating,

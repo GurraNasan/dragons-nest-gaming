@@ -321,14 +321,15 @@ To improve the search engine ranking I ensured the site carries meta tags for a 
 ### Testing 
 I utilised a manual testing strategy for the development of the site. 
 #### Bugs 
+
+##### Fixed
 Many bugs came up with typos, like i put a s in item. 
 I forgot the table end tag on the calendar so it was always at the bottom and under the footer. 
 I haved changed the name and friendly name on a category so it did not show up. It was easy to change back. 
-##### Fixed
-
 ##### Need to be fixed
 At the rating page you can write a larger number then 5, but you get a error message. The limit it 5, so you cant send it. 
-Back to top button always shows
+Back to top button always shows.
+Wrong time format when you add to calendar, should be 24hours
 
 #### ManuelTesting
 

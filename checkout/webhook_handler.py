@@ -57,7 +57,9 @@ class StripeWH_Handler:
         save_info = intent.metadata.save_info
 
         # get the charge objects
-        stripe_charge = stripe.Charge.retrieve(intent.latest_charge)
+        stripe_charge = stripe.Charge.retrieve(
+            intent.latest_charge
+        )
         billing_details = stripe_charge.billing_details
         shipping_details = intent.shipping
         grand_total = round(stripe_charge.amount / 100, 2)
@@ -150,8 +152,7 @@ class StripeWH_Handler:
         self._send_confirmation_email(order)
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
-            status=200
-        )
+            status=200)
 
     def handle_payment_intent_failed(self, event):
         """
